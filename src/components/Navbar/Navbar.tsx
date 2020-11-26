@@ -1,6 +1,5 @@
 import React from "react";
-import { AppBar, Button, Toolbar } from "@material-ui/core";
-import { Link as RouterLink } from "react-router-dom";
+import { AppBar, Toolbar } from "@material-ui/core";
 import { useSelector } from "react-redux";
 import { selectToken } from "../../store/user/selectors";
 import LoggedIn from "./LoggedIn";
