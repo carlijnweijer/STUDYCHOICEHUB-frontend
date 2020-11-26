@@ -1,29 +1,18 @@
-import {
-  AppBar,
-  Button,
-  IconButton,
-  Toolbar,
-  Typography,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import LoginPage from "./pages/LoginSignup/LoginPage";
+import SignupPage from "./pages/LoginSignup/SignupPage";
 
 function App() {
   return (
     <div className="App">
-      <AppBar position="static">
-        <Toolbar>
-          <Button color="inherit">Login</Button>
-          <Button color="secondary">Signup</Button>
-        </Toolbar>
-      </AppBar>
-
+      <Navbar />
       <h1>Hi i'm app</h1>
       <Switch>
         <Route exact path="/" />
-        <Route exact path="/signup" />
-        <Route exact path="/login" />
+        <Route exact path="/signup" component={SignupPage} />
+        <Route exact path="/login" component={LoginPage} />
       </Switch>
     </div>
   );
