@@ -9,6 +9,9 @@ export default function LoggedOut() {
       <Button color="inherit" component={RouterLink} to="/login">
         Login
       </Button>
+      <Button color="inherit" component={RouterLink} to="/signup">
+        Sign Up
+      </Button>
     </div>
   );
 }

@@ -1,5 +1,25 @@
-import { apiUrl } from "../../config/constants";
 //state type
+
+export enum Role {
+  Scholar = "scholar",
+  Student = "student",
+}
+
+export enum Level {
+  Havo = "havo",
+  Vwo = "vwo",
+  Hbo = "hbo",
+  Wo = "wo",
+}
+
+export type User = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: Role;
+  level: Level;
+};
+
 export type userState = {
   token: string | null;
   firstName: string | null;
