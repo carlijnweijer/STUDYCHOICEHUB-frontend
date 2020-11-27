@@ -127,6 +127,7 @@ export default function SignupPage() {
             value={password}
             onChange={handlePasswordChange}
             label="Password"
+            type="password"
           />
         </FormControl>
         <FormControl variant="outlined">
