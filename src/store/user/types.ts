@@ -1,23 +1,23 @@
 //state type
 
 export enum Role {
-  scholar,
-  student,
+  Scholar = "scholar",
+  Student = "student",
 }
 
 export enum Level {
-  havo,
-  vwo,
-  hbo,
-  wo,
+  Havo = "havo",
+  Vwo = "vwo",
+  Hbo = "hbo",
+  Wo = "wo",
 }
 
 export type User = {
   firstName: string;
   lastName: string;
   email: string;
-  role: string;
-  level: string;
+  role: Role;
+  level: Level;
 };
 
 export type userState = {

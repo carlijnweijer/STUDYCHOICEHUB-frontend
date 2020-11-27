@@ -9,6 +9,7 @@ import {
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { signup } from "../../store/user/actions";
+import { Level, Role } from "../../store/user/types";
 
 export default function SignupPage() {
   const [firstName, setFirstName] = useState("");
@@ -42,19 +43,21 @@ export default function SignupPage() {
   };
 
   const onSelectRole = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setRole(event.target.value as string);
+    setRole(event.target.value as Role);
     console.log(role);
   };
 
   const onSelectLevel = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setLevel(event.target.value as string);
+    setLevel(event.target.value as Level);
     console.log(level);
   };
 
   const onSignUp = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log("submit got clicked");
-    dispatch(signup(firstName, lastName, email, password, role, level));
+    dispatch(
+      signup(firstName, lastName, email, password, role as Role, level as Level)
+    );
   };
 
   const roleControls =
@@ -77,6 +80,14 @@ export default function SignupPage() {
     );
 
   const signUpControls = role === "" ? null : roleControls;
+
+  const formValid =
+    role !== "" &&
+    level !== "" &&
+    firstName !== "" &&
+    lastName !== "" &&
+    email !== "" &&
+    password !== "";
 
   return (
     <div>
@@ -126,7 +137,12 @@ export default function SignupPage() {
           </Select>
         </FormControl>
         {signUpControls}
-        <Button variant="outlined" color="secondary" type="submit">
+        <Button
+          variant="outlined"
+          color="secondary"
+          type="submit"
+          disabled={!formValid}
+        >
           Sign Up
         </Button>
       </form>

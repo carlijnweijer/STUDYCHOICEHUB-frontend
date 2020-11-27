@@ -57,8 +57,8 @@ export const signup = (
   lastName: string,
   email: string,
   password: string,
-  role: string,
-  level: string
+  role: Role,
+  level: Level
 ): AppThunk => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
