@@ -2,3 +2,25 @@
   margin: 0;
   padding: 0;
 }
+
+.topBar {
+  flex: 100;
+}
+
+.main {
+  display: flex;
+}
+
+.sideBar {
+  background-color: aqua;
+  width: 5%;
+}
+
+.content {
+  background-color: cadetblue;
+  flex: 1;
+}
+
+.footer {
+  background-color: pink;
+}
