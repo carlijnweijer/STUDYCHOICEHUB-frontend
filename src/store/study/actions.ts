@@ -1,6 +1,6 @@
 import { AppThunk } from "../types";
 import axios from "axios";
-import { FETCH_STUDY_SUCCES, studyActionTypes, study } from "./types";
+import { FETCH_STUDY_SUCCES, study } from "./types";
 import { apiUrl } from "../../config/constants";
 
 const fetchStudySucces = (studies: study[]) => ({
@@ -13,6 +13,14 @@ export const fetchStudies = (): AppThunk => {
   return async (dispatch, getState) => {
     const response = await axios.get(`${apiUrl}/studies`);
     console.log("what is response, ", response.data);
+    dispatch(fetchStudySucces(response.data));
+  };
+};
+
+export const fetchStudiesSector = (sector: string): AppThunk => {
+  return async (dispatch, getState) => {
+    const response = await axios.get(`${apiUrl}/studies/${sector}`);
+    console.log("what is response data", response.data);
     dispatch(fetchStudySucces(response.data));
   };
 };

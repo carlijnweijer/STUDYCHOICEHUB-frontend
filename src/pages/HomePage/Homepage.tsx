@@ -10,6 +10,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStudies } from "../../store/study/actions";
 import { selectStudies } from "../../store/study/selectors";
+import { study } from "../../store/study/types";
 
 export default function Homepage() {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export default function Homepage() {
     <div>
       <h3>hi im home</h3>
       <Container>
-        {studies.map((study) => {
+        {studies.map((study: study) => {
           return (
             <Card key={study.id} variant="outlined">
               <CardContent>

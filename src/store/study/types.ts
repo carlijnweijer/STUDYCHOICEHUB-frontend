@@ -1,4 +1,7 @@
-export type studyState = study[];
+export type studyState = {
+  sectors: string[];
+  studies: study[];
+};
 
 export type study = {
   id: number;
@@ -16,4 +19,4 @@ export type fetchStudySucces = {
   payload: study[];
 };
 
-export type studyActionTypes = fetchStudySucces;
+// export type studyActionTypes = fetchStudySucces;
