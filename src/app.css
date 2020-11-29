@@ -13,7 +13,9 @@
 
 .sideBar {
   background-color: aqua;
-  width: 5%;
+  display: flex;
+  justify-content: center;
+  /* width: 5%; */
 }
 
 .content {

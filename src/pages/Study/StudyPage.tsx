@@ -1,6 +1,7 @@
 import React from "react";
 import StudyStories from "../../components/StudyStories/StudyStories";
 import { Container } from "@material-ui/core";
+import { useParams } from "react-router-dom";
 
 export default function StudyPage() {
   return (

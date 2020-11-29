@@ -10,6 +10,7 @@ import SignupPage from "./pages/LoginSignup/SignupPage";
 import StudyPage from "./pages/Study/StudyPage";
 import Homepage from "./pages/HomePage/Homepage";
 import Sidebar from "./components/Sidebar/Sidebar";
+import SectorPage from "./pages/Study/SectorPage";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/logout" component={LogoutPage} />
             <Route path="/study/:id" component={StudyPage} />
+            <Route path="/studies/:sector" component={SectorPage} />
           </Switch>
         </div>
       </div>

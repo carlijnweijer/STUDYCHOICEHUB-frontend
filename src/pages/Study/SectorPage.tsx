@@ -8,22 +8,27 @@ import {
 } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchStudies } from "../../store/study/actions";
+import { useParams } from "react-router-dom";
+import { fetchStudiesSector } from "../../store/study/actions";
 import { selectStudies } from "../../store/study/selectors";
 import { study } from "../../store/study/types";
 import { Link as RouterLink } from "react-router-dom";
 
-export default function Homepage() {
+export default function SectorPage() {
+  const { sector } = useParams<{ sector: string }>();
+  console.log("what is sector", sector);
+  const regex = /_/gi;
   const dispatch = useDispatch();
   const studies = useSelector(selectStudies);
+  console.log("wat is studies", studies);
 
   useEffect(() => {
-    dispatch(fetchStudies());
-  }, [dispatch]);
+    dispatch(fetchStudiesSector(sector));
+  }, []);
 
   return (
     <div>
-      <h3>hi im home</h3>
+      <h1>im {sector.replace(regex, " ")}</h1>
       <Container>
         {studies.map((study: study) => {
           return (
@@ -34,12 +39,8 @@ export default function Homepage() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button
-                  size="small"
-                  component={RouterLink}
-                  to={`/studies/${study.crohoSector}`}
-                >
-                  See Study!
+                <Button component={RouterLink} to={`/study/${study.id}`}>
+                  Learn More!
                 </Button>
               </CardActions>
             </Card>

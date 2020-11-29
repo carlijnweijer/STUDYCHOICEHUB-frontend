@@ -13,6 +13,7 @@ import {
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectSectors } from "../../store/study/selectors";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function Sidebar() {
   const sectors = useSelector(selectSectors);
@@ -24,7 +25,7 @@ export default function Sidebar() {
           case "economie":
             return (
               <div>
-                <IconButton>
+                <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <AccountBalance />
                 </IconButton>
               </div>
@@ -33,7 +34,7 @@ export default function Sidebar() {
           case "gedrag_en_maatschappij":
             return (
               <div>
-                <IconButton>
+                <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <AccessibilityNew />
                 </IconButton>
               </div>
@@ -42,7 +43,7 @@ export default function Sidebar() {
           case "gezondheidszorg":
             return (
               <div>
-                <IconButton>
+                <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <LocalHospital />
                 </IconButton>
               </div>
@@ -51,7 +52,7 @@ export default function Sidebar() {
           case "landbouw_en_natuurlijke_omgeving":
             return (
               <div>
-                <IconButton>
+                <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <Eco />
                 </IconButton>
               </div>
@@ -60,7 +61,7 @@ export default function Sidebar() {
           case "natuur":
             return (
               <div>
-                <IconButton>
+                <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <EmojiNature />
                 </IconButton>
               </div>
@@ -69,7 +70,7 @@ export default function Sidebar() {
           case "onderwijs":
             return (
               <div>
-                <IconButton>
+                <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <School />
                 </IconButton>
               </div>
@@ -78,7 +79,7 @@ export default function Sidebar() {
           case "recht":
             return (
               <div>
-                <IconButton>
+                <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <Gavel />
                 </IconButton>
               </div>
@@ -87,7 +88,7 @@ export default function Sidebar() {
           case "taal_en_cultuur":
             return (
               <div>
-                <IconButton>
+                <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <Language />
                 </IconButton>
               </div>
@@ -96,7 +97,7 @@ export default function Sidebar() {
           case "techniek":
             return (
               <div>
-                <IconButton>
+                <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <Settings />
                 </IconButton>
               </div>
@@ -105,7 +106,7 @@ export default function Sidebar() {
           default:
             return (
               <div>
-                <IconButton>
+                <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <Settings />
                 </IconButton>
               </div>
