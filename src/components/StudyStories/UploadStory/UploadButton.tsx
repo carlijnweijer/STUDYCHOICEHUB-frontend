@@ -1,8 +1,8 @@
 import { Button } from "@material-ui/core";
+
 import React, { useState } from "react";
 
 export default function UploadButton() {
-  const [fileInputState, setFileInputState] = useState("");
   const [selectedFile, setSelectedFile] = useState("");
 
   const hiddenFileInput: any = React.useRef(null);
@@ -13,10 +13,27 @@ export default function UploadButton() {
     hiddenFileInput.current.click();
   };
 
-  const handleFileInputChange = (event: any) => {
+  const handleFileInputChange = async (event: any) => {
     const file: any = event.target.files[0];
     console.log("file is", file);
-    setSelectedFile(file);
+
+    const data = new FormData();
+    data.append("file", file);
+    data.append("upload_preset", "studychoicehub");
+
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dqxz3kw8u/video/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+
+    console.log("what is response fetch", res);
+
+    const video = await res.json();
+
+    setSelectedFile(video.secure_url);
   };
 
   console.log("selected file", selectedFile);
