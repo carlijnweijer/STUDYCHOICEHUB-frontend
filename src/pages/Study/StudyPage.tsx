@@ -9,6 +9,7 @@ import { selectedStudy } from "../../store/study/selectors";
 import StudyStory from "../../components/StudyStories/StudyStory";
 import QAsection from "../../components/QAsection/QAsection";
 import { selectUser } from "../../store/user/selectors";
+import { fetchQuestions } from "../../store/question/actions";
 
 export default function StudyPage() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ export default function StudyPage() {
 
   useEffect(() => {
     dispatch(fetchStudy(id));
+    dispatch(fetchQuestions(id));
   }, [id, dispatch]);
 
   return (

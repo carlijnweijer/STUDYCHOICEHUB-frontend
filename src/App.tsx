@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import "./styles/app.css";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-
-import UploadButton from "./components/StudyStories/UploadStory/UploadButton";
 import LoginPage from "./pages/LoginSignup/LoginPage";
 import LogoutPage from "./pages/LoginSignup/LogoutPage";
 import SignupPage from "./pages/LoginSignup/SignupPage";
