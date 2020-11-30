@@ -60,7 +60,6 @@ export const postStudyStory = (data: any): AppThunk => {
       const state = getState();
       const storyState = state.studyStoryStateReducer;
       dispatch(uploadStory(storyState));
-      //dispatch videoUrl into my database with study and user
     } catch (error) {
       console.log(error);
     }

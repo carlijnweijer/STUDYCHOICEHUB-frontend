@@ -1,4 +1,4 @@
-import { FETCH_STUDY_SUCCES, studyState } from "./types";
+import { FETCH_SELECTED_STUDY, FETCH_STUDY_SUCCES, studyState } from "./types";
 
 const initialState: studyState = {
   sectors: [
@@ -13,12 +13,16 @@ const initialState: studyState = {
     "techniek",
   ],
   studies: [],
+  selectedStudy: null,
 };
 
 const studyStateReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case FETCH_STUDY_SUCCES:
       return { ...state, studies: action.payload };
+
+    case FETCH_SELECTED_STUDY:
+      return { ...state, selectedStudy: action.payload };
 
     default:
       return state;
