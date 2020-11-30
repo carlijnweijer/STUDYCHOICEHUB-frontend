@@ -1,9 +1,9 @@
 import {
+  Box,
   Button,
   Card,
   CardActions,
   CardContent,
-  Container,
   Typography,
 } from "@material-ui/core";
 import React, { useEffect } from "react";
@@ -22,12 +22,16 @@ export default function Homepage() {
   }, [dispatch]);
 
   return (
-    <div>
-      <h3>hi im home</h3>
-      <Container>
+    <div className="page">
+      <Typography variant="h3">HomePage</Typography>
+      <Box className="home__container">
         {studies.map((study: study) => {
           return (
-            <Card key={study.id} variant="outlined">
+            <Card
+              key={study.id}
+              variant="outlined"
+              className="home__container__card"
+            >
               <CardContent>
                 <Typography>
                   {study.titleEn ? study.titleEn : study.titleNL}
@@ -35,6 +39,7 @@ export default function Homepage() {
               </CardContent>
               <CardActions>
                 <Button
+                  className="home__card__button"
                   size="small"
                   component={RouterLink}
                   to={`/studies/${study.crohoSector}`}
@@ -45,7 +50,7 @@ export default function Homepage() {
             </Card>
           );
         })}
-      </Container>
+      </Box>
     </div>
   );
 }
