@@ -21,18 +21,20 @@ export default function StudyPage() {
   return (
     <div className="page">
       <Container>
-        <div>
-          <Typography variant="h3">{study?.titleEn}</Typography>
+        <div className="studyPage__top">
+          <Typography variant="h3" className="studyPage__title">
+            {study?.titleEn}
+          </Typography>
           <UploadButton />
-          <div className="studyStories">
-            {study?.studyStories.map((story: any) => {
-              return <StudyStory videoUrl={story.video} />;
-            })}
-          </div>
-          <div>reviews</div>
-          <Reviews />
-          <div>Q&A</div>
         </div>
+        <div className="studyStories">
+          {study?.studyStories.map((story: any) => {
+            return <StudyStory videoUrl={story.video} />;
+          })}
+        </div>
+        <div>reviews</div>
+        <Reviews />
+        <div>Q&A</div>
       </Container>
     </div>
   );
