@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Container, Typography } from "@material-ui/core";
 import { useParams } from "react-router-dom";
-import Reviews from "../../components/Reviews/Reviews";
 import UploadButton from "../../components/StudyStories/UploadStory/UploadButton";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStudy } from "../../store/study/actions";
@@ -33,7 +32,6 @@ export default function StudyPage() {
           })}
         </div>
         <div>reviews</div>
-        <Reviews />
         <div>Q&A</div>
       </Container>
     </div>
