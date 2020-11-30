@@ -24,7 +24,7 @@ export default function StudyPage() {
       <Box>
         <div className="studyPage__top">
           <Typography variant="h3" className="studyPage__title">
-            {study?.titleEn}
+            {study?.titleEn ? study?.titleEn : study?.titleNL}
           </Typography>
           <UploadButton />
         </div>
