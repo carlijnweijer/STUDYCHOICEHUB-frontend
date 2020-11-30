@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-import { Container, Typography } from "@material-ui/core";
+import "./styles.css";
+import { Box, Container, Typography } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import UploadButton from "../../components/StudyStories/UploadStory/UploadButton";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStudy } from "../../store/study/actions";
 import { selectedStudy } from "../../store/study/selectors";
 import StudyStory from "../../components/StudyStories/StudyStory";
+import QAsection from "../../components/QAsection/QAsection";
 
 export default function StudyPage() {
   const dispatch = useDispatch();
@@ -19,7 +21,7 @@ export default function StudyPage() {
 
   return (
     <div className="page">
-      <Container>
+      <Box>
         <div className="studyPage__top">
           <Typography variant="h3" className="studyPage__title">
             {study?.titleEn}
@@ -31,9 +33,8 @@ export default function StudyPage() {
             return <StudyStory videoUrl={story.video} />;
           })}
         </div>
-        <div>reviews</div>
-        <div>Q&A</div>
-      </Container>
+      </Box>
+      <QAsection />
     </div>
   );
 }
