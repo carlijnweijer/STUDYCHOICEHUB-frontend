@@ -13,18 +13,27 @@ import { fetchStudiesSector } from "../../store/study/actions";
 import { selectStudies } from "../../store/study/selectors";
 import { study } from "../../store/study/types";
 import { Link as RouterLink } from "react-router-dom";
+import { saveStudyStory, userStudyStory } from "../../store/studyStory/actions";
+import { selectUserId } from "../../store/user/selectors";
 
 export default function SectorPage() {
   const { sector } = useParams<{ sector: string }>();
-  console.log("what is sector", sector);
+  // console.log("what is sector", sector);
   const regex = /_/gi;
   const dispatch = useDispatch();
   const studies = useSelector(selectStudies);
-  console.log("wat is studies", studies);
+  // console.log("wat is studies", studies);
+  const userId = useSelector(selectUserId);
+
+  const clickedStudy = (studyId: number, userId: number | null) => {
+    console.log("what got clicked", studyId);
+    dispatch(saveStudyStory(studyId));
+    dispatch(userStudyStory(userId));
+  };
 
   useEffect(() => {
     dispatch(fetchStudiesSector(sector));
-  }, []);
+  }, [sector]);
 
   return (
     <div>
@@ -39,7 +48,13 @@ export default function SectorPage() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button component={RouterLink} to={`/study/${study.id}`}>
+                <Button
+                  component={RouterLink}
+                  to={`/study/${study.id}`}
+                  onClick={() => {
+                    clickedStudy(study.id, userId);
+                  }}
+                >
                   Learn More!
                 </Button>
               </CardActions>

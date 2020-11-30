@@ -11,6 +11,9 @@ const initialState: userState = {
   firstName: null,
   lastName: null,
   email: null,
+  id: null,
+  role: null,
+  level: null,
 };
 
 const userStateReducer = (state = initialState, action: userActionTypes) => {

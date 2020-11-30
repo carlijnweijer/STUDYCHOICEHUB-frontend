@@ -1,9 +1,12 @@
 import { Button } from "@material-ui/core";
 
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { postStudyStory } from "../../../store/studyStory/actions";
+import { selectUser } from "../../../store/user/selectors";
 
 export default function UploadButton() {
-  const [selectedFile, setSelectedFile] = useState("");
+  const dispatch = useDispatch();
 
   const hiddenFileInput: any = React.useRef(null);
 
@@ -21,22 +24,8 @@ export default function UploadButton() {
     data.append("file", file);
     data.append("upload_preset", "studychoicehub");
 
-    const res = await fetch(
-      "https://api.cloudinary.com/v1_1/dqxz3kw8u/video/upload",
-      {
-        method: "POST",
-        body: data,
-      }
-    );
-
-    console.log("what is response fetch", res);
-
-    const video = await res.json();
-
-    setSelectedFile(video.secure_url);
+    dispatch(postStudyStory(data));
   };
-
-  console.log("selected file", selectedFile);
 
   return (
     <form>

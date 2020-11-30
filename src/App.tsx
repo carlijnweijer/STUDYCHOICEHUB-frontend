@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./app.css";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
@@ -11,8 +11,16 @@ import StudyPage from "./pages/Study/StudyPage";
 import Homepage from "./pages/HomePage/Homepage";
 import Sidebar from "./components/Sidebar/Sidebar";
 import SectorPage from "./pages/Study/SectorPage";
+import { useDispatch } from "react-redux";
+import { getUserWithStoredToken } from "./store/user/actions";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUserWithStoredToken());
+  }, [dispatch]);
+
   return (
     <div className="app">
       <div className="topBar">
@@ -23,7 +31,6 @@ function App() {
           <Sidebar />
         </div>
         <div className="content">
-          <UploadButton />
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route exact path="/signup" component={SignupPage} />
