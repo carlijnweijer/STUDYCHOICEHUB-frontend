@@ -8,12 +8,16 @@ import { fetchStudy } from "../../store/study/actions";
 import { selectedStudy } from "../../store/study/selectors";
 import StudyStory from "../../components/StudyStories/StudyStory";
 import QAsection from "../../components/QAsection/QAsection";
+import { selectUser } from "../../store/user/selectors";
 
 export default function StudyPage() {
   const dispatch = useDispatch();
   const { id } = useParams<{ id: string | undefined }>();
   console.log(id, "id is");
   const study = useSelector(selectedStudy);
+  const user = useSelector(selectUser);
+
+  const uploadControls = user.role === "student" ? <UploadButton /> : null;
 
   useEffect(() => {
     dispatch(fetchStudy(id));
@@ -26,7 +30,7 @@ export default function StudyPage() {
           <Typography variant="h3" className="studyPage__title">
             {study?.titleEn ? study?.titleEn : study?.titleNL}
           </Typography>
-          <UploadButton />
+          {uploadControls}
         </div>
         <div className="studyStories">
           {study?.studyStories.map((story: any) => {
