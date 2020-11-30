@@ -3,12 +3,14 @@ import appStateReducer from "./appState/reducer";
 import userStateReducer from "./user/reducer";
 import studyStateReducer from "./study/reducer";
 import studyStoryStateReducer from "./studyStory/reducer";
+import questionStateReducer from "./question/reducer";
 
 const rootReducer = combineReducers({
   appStateReducer,
   userStateReducer,
   studyStateReducer,
   studyStoryStateReducer,
+  questionStateReducer,
 });
 
 export default rootReducer;
