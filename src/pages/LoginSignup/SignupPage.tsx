@@ -6,9 +6,11 @@ import {
   MenuItem,
   Button,
 } from "@material-ui/core";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { signup } from "../../store/user/actions";
+import { selectToken } from "../../store/user/selectors";
 import { Level, Role } from "../../store/user/types";
 
 export default function SignupPage() {
@@ -19,6 +21,14 @@ export default function SignupPage() {
   const [level, setLevel] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const token = useSelector(selectToken);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (token !== null) {
+      history.push("/");
+    }
+  }, [token, history]);
 
   const handleFirstnameChange = (
     event: React.ChangeEvent<HTMLInputElement>

@@ -59,6 +59,7 @@ export default function LoginPage() {
               value={password}
               onChange={handlePasswordChange}
               label="Password"
+              type="password"
             />
           </FormControl>
           <Button color="primary" variant="outlined" type="submit">

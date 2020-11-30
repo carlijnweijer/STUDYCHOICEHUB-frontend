@@ -25,6 +25,9 @@ export type userState = {
   firstName: string | null;
   lastName: string | null;
   email: string | null;
+  id: number | null;
+  role: Role | null;
+  level: Level | null;
 };
 
 export type userWithToken = {

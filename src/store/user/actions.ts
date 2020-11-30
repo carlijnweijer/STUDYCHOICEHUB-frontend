@@ -12,6 +12,7 @@ import {
 } from "./types";
 import { appDoneLoading, appLoading, setMessage } from "../appState/actions";
 import { apiUrl } from "../../config/constants";
+import { selectToken } from "./selectors";
 
 const loginSucces = (userWithToken: userWithToken): userActionTypes => ({
   type: LOGIN_SUCCES,
@@ -24,6 +25,24 @@ const tokenStillValid = (
   type: TOKEN_STILL_VALID,
   payload: userWithoutToken,
 });
+
+export const getUserWithStoredToken = (): AppThunk => {
+  return async (dispatch, getState) => {
+    const token = selectToken(getState());
+    if (token === null) return;
+
+    try {
+      const response = await axios.get(`${apiUrl}/me`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      dispatch(tokenStillValid(response.data));
+      console.log("WHAT IS TOKENVALID RES", response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 export const logOut = (): userActionTypes => ({ type: LOG_OUT });
 

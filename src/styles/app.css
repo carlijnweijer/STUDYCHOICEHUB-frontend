@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+------ TOPBAR ------ 
+ELEMENTS: NAVBAR
+*/
+.topBar {
+  flex: 100;
+}
+/* 
+------ MAIN ------ 
+ELEMENTS: SIDEBAR
+*/
+
+.main {
+  display: flex;
+}
+
+.sideBar {
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  /* width: 5%; */
+}
+
+/* 
+------ CONTENT ------ 
+ELEMENTS: HOMEPAGE, LOGIN/SIGNUP, SECTORPAGE, STUDYPAGE
+*/
+
+.content {
+  /* background-image: url(images/backgroundpattern.png); */
+  background-size: cover;
+  background-color: cadetblue;
+  flex: 1;
+}
+
+/*HOME*/
+.page {
+  padding: 20px;
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+}
+
+.home__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.home__container__card {
+  width: 20%;
+  height: 150px;
+  margin: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 1;
+}
+
+.studyPage__top {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.studyPage__title {
+  flex: 1;
+}
+
+/* 
+------ FOOTER ------ */
+
+.footer {
+  background-color: pink;
+}
