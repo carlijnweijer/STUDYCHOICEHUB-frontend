@@ -3,13 +3,14 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { postQuestion } from "../../store/question/actions";
+import { fetchStudy } from "../../store/study/actions";
 
 export default function Ask() {
   const { id } = useParams<{ id: string | undefined }>();
   const [question, setQuestion] = useState("");
   const dispatch = useDispatch();
 
-  console.log("what is id on ask com", id);
+  // console.log("what is id on ask com", id);
 
   const handleQuestion = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuestion(event.target.value);
@@ -17,6 +18,7 @@ export default function Ask() {
 
   const handleClickAsk = (event: any) => {
     dispatch(postQuestion(question, id));
+    dispatch(fetchStudy(id));
     setQuestion("");
   };
 

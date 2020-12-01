@@ -14,7 +14,7 @@ import { fetchQuestions } from "../../store/question/actions";
 export default function StudyPage() {
   const dispatch = useDispatch();
   const { id } = useParams<{ id: string | undefined }>();
-  console.log(id, "id is");
+  // console.log(id, "id is");
   const study = useSelector(selectedStudy);
   const user = useSelector(selectUser);
 
@@ -22,7 +22,7 @@ export default function StudyPage() {
 
   useEffect(() => {
     dispatch(fetchStudy(id));
-    dispatch(fetchQuestions(id));
+    // dispatch(fetchQuestions(id));
   }, [id, dispatch]);
 
   return (

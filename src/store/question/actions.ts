@@ -49,14 +49,14 @@ export const postQuestion = (
         }
       );
 
-      dispatch(postAQuestion(response.data));
+      // dispatch(postAQuestion(response.data));
     } catch (error) {
       console.log(error);
     }
   };
 };
 //add question to state
-const postAQuestion = (question: question): postQuestionAction => ({
-  type: POST_QUESTION,
-  payload: question,
-});
+// const postAQuestion = (question: question): postQuestionAction => ({
+//   type: POST_QUESTION,
+//   payload: question,
+// });
