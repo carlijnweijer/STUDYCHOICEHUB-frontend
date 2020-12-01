@@ -22,3 +22,8 @@ export const POST_ANSWER = "POST_ANSWER";
 //   type: typeof FETCHED_QUESTIONS;
 //   payload: question[];
 // };
+
+export type postQuestionAction = {
+  type: typeof POST_QUESTION;
+  payload: question;
+};

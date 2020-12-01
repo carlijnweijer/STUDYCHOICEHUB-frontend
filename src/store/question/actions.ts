@@ -1,7 +1,12 @@
 import { AppThunk } from "../types";
 import axios from "axios";
 import { apiUrl } from "../../config/constants";
-import { question, FETCHED_QUESTIONS } from "./types";
+import {
+  question,
+  FETCHED_QUESTIONS,
+  POST_QUESTION,
+  postQuestionAction,
+} from "./types";
 
 //fetch all the questions
 //takes studyid
@@ -27,4 +32,31 @@ const fetchedQuestions = (questions: question[]) => ({
 });
 
 //post one question
+export const postQuestion = (
+  content: string,
+  studyId: number | string | undefined
+): AppThunk => {
+  return async (dispatch, getState) => {
+    const state = getState();
+    const { id } = state.userStateReducer;
+
+    try {
+      const response = await axios.post(
+        `${apiUrl}/study/${studyId}/questions/ask`,
+        {
+          content,
+          userId: id,
+        }
+      );
+
+      dispatch(postAQuestion(response.data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 //add question to state
+const postAQuestion = (question: question): postQuestionAction => ({
+  type: POST_QUESTION,
+  payload: question,
+});

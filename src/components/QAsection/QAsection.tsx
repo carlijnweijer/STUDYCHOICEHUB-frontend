@@ -9,7 +9,7 @@ import moment from "moment";
 
 export default function QAsection() {
   const questionsState = useSelector(selectQuestions);
-  const questions = questionsState[0];
+  const questions = questionsState;
   const bull = <span> • </span>;
 
   return (
@@ -24,7 +24,7 @@ export default function QAsection() {
                 {/* <Typography variant="h6">{question.content}</Typography> */}
                 <Typography>{question.content}</Typography>
                 <Typography>
-                  <AccountCircle /> {question.user.firstName}
+                  <AccountCircle /> {question.user?.firstName}
                   {bull}
                   {moment(question.createdAt).format("DD-MM-YYYY")}
                 </Typography>
