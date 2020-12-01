@@ -8,3 +8,10 @@ export default function ReviewSection() {
     </div>
   );
 }
+
+/*
+all the studies
+select only one study
+get the id of that study
+create a review for that studyId
+*/

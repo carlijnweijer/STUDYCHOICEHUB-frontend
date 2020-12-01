@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { IconButton, Menu, MenuItem } from "@material-ui/core";
 import { Link as RouterLink } from "react-router-dom";
 import { AccountCircle } from "@material-ui/icons";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../store/user/selectors";
 
 export default function LoggedIn() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const user = useSelector(selectUser);
+  const role = user.role;
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -13,6 +17,13 @@ export default function LoggedIn() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const studentControls =
+    role === "student" ? (
+      <MenuItem onClick={handleClose} component={RouterLink} to="/postReview">
+        Write a Review
+      </MenuItem>
+    ) : null;
 
   return (
     <div>
@@ -34,6 +45,7 @@ export default function LoggedIn() {
         >
           <MenuItem onClick={handleClose}>Profile</MenuItem>
           <MenuItem onClick={handleClose}>My account</MenuItem>
+          {studentControls}
           <MenuItem onClick={handleClose} component={RouterLink} to="/logout">
             Logout
           </MenuItem>

@@ -11,6 +11,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import SectorPage from "./pages/Study/SectorPage";
 import { useDispatch } from "react-redux";
 import { getUserWithStoredToken } from "./store/user/actions";
+import PostReview from "./components/reviewsSection/PostReview";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,12 +37,10 @@ function App() {
             <Route exact path="/logout" component={LogoutPage} />
             <Route path="/study/:id" component={StudyPage} />
             <Route path="/studies/:sector" component={SectorPage} />
+            <Route path="/postReview" component={PostReview} />
           </Switch>
         </div>
       </div>
-      {/* <div className="footer">
-        <div>i'm footer</div>
-      </div> */}
     </div>
   );
 }
