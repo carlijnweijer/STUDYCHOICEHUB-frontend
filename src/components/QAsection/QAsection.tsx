@@ -13,6 +13,7 @@ export default function QAsection() {
   const study = useSelector(selectedStudy);
   // const questions = questionsState;
   const bull = <span> • </span>;
+  console.log("questions", study?.questions);
 
   return (
     <div className="QAsection">
@@ -30,7 +31,7 @@ export default function QAsection() {
                   {moment(question.createdAt).format("DD-MM-YYYY")}
                 </Typography>
               </CardContent>
-              <Answer />
+              <Answer answers={question.answers} />
             </Card>
           );
         })}

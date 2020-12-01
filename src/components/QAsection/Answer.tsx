@@ -9,6 +9,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import { Box, Button } from "@material-ui/core";
+import moment from "moment";
+import { AccountCircle } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -30,14 +32,19 @@ const useStyles = makeStyles((theme: Theme) =>
       //   transform: "rotate(180deg)",
     },
     avatar: {
-      backgroundColor: red[500],
+      //   backgroundColor: red[500],
       width: theme.spacing(3),
       height: theme.spacing(3),
+      marginLeft: 5,
+      marginRight: 5,
     },
   })
 );
 
-export default function Answer() {
+export default function Answer(props: any) {
+  const answers = props.answers;
+  console.log("what is question prop", answers);
+  const bull = <span> • </span>;
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -60,7 +67,23 @@ export default function Answer() {
         </Button>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent></CardContent>
+        {answers.map((answer: any) => {
+          return (
+            <CardContent>
+              <Typography>{answer.content}</Typography>
+              <Typography>
+                {moment(answer.createdAt).format("DD-MM-YYYY")}
+                {bull}
+                <span>
+                  <Avatar className={classes.avatar}>
+                    {answer.user.firstName[0]}
+                  </Avatar>
+                </span>
+                {answer.user.firstName}
+              </Typography>
+            </CardContent>
+          );
+        })}
       </Collapse>
     </Box>
   );

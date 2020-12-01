@@ -55,8 +55,27 @@ export const postQuestion = (
     }
   };
 };
-//add question to state
-// const postAQuestion = (question: question): postQuestionAction => ({
-//   type: POST_QUESTION,
-//   payload: question,
-// });
+
+export const postAnswer = (
+  content: string,
+  studyId: number,
+  questionId: number
+): AppThunk => {
+  return async (dispatch, getState) => {
+    const state = getState();
+    const { id } = state.userStateReducer;
+
+    try {
+      const response = await axios.post(
+        `${apiUrl}/study/${studyId}/questions/${questionId}/answer`,
+        {
+          content,
+          userId: id,
+          questionId,
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
