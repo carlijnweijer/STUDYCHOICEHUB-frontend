@@ -7,9 +7,7 @@ import {
   POST_QUESTION,
   postQuestionAction,
 } from "./types";
-
-//fetch all the questions
-//takes studyid
+import { fetchStudy } from "../study/actions";
 
 export const fetchQuestions = (
   studyId: number | string | undefined
@@ -48,8 +46,7 @@ export const postQuestion = (
           userId: id,
         }
       );
-
-      // dispatch(postAQuestion(response.data));
+      dispatch(fetchStudy(studyId));
     } catch (error) {
       console.log(error);
     }

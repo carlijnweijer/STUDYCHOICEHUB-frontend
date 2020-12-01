@@ -2,11 +2,14 @@ import { Button } from "@material-ui/core";
 
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { fetchStudy } from "../../../store/study/actions";
 import { postStudyStory } from "../../../store/studyStory/actions";
 import { selectUser } from "../../../store/user/selectors";
 
 export default function UploadButton() {
   const dispatch = useDispatch();
+  const { id } = useParams<{ id: string | undefined }>();
 
   const hiddenFileInput: any = React.useRef(null);
 
@@ -25,6 +28,7 @@ export default function UploadButton() {
     data.append("upload_preset", "studychoicehub");
 
     dispatch(postStudyStory(data));
+    // dispatch(fetchStudy(id));
   };
 
   return (

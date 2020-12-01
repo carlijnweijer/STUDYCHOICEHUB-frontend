@@ -34,6 +34,7 @@ export const fetchStudy = (studyId: number | string | undefined): AppThunk => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(`${apiUrl}/study/${studyId}`);
+      console.log("did i get to fetch study");
       dispatch(fetchSelectedStudySucces(response.data.study));
     } catch (error) {
       console.log(error);
