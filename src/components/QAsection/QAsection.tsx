@@ -31,7 +31,7 @@ export default function QAsection() {
                   {moment(question.createdAt).format("DD-MM-YYYY")}
                 </Typography>
               </CardContent>
-              <Answer answers={question.answers} />
+              <Answer question={question} />
             </Card>
           );
         })}

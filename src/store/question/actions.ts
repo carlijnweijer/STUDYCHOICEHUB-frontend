@@ -58,12 +58,14 @@ export const postQuestion = (
 
 export const postAnswer = (
   content: string,
-  studyId: number,
+  studyId: any,
   questionId: number
 ): AppThunk => {
   return async (dispatch, getState) => {
     const state = getState();
+    console.log("what is state", state);
     const { id } = state.userStateReducer;
+    console.log("id in post answer thunk is ", id);
 
     try {
       const response = await axios.post(
@@ -71,7 +73,6 @@ export const postAnswer = (
         {
           content,
           userId: id,
-          questionId,
         }
       );
     } catch (error) {

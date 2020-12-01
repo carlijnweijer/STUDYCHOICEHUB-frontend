@@ -25,7 +25,7 @@ export default function Ask() {
   return (
     <div className="ask">
       <TextField
-        id="outlined-full-width"
+        // id="outlined-full-width"
         value={question}
         onChange={handleQuestion}
         label="Question"
