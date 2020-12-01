@@ -10,6 +10,11 @@ import {
 } from "./types";
 import { apiUrl } from "../../config/constants";
 import { fetchStudy } from "../study/actions";
+import {
+  appDoneLoading,
+  appLoading,
+  showMessageWithTimeout,
+} from "../appState/actions";
 
 const studyStorySucces = (videoUrl: videoUrl): postStudyStorySucces => ({
   type: POST_STUDYSTORY,
@@ -42,14 +47,18 @@ const uploadStory = (videoUrl: any): AppThunk => {
       });
       dispatch(fetchStudy(currentstudy.id));
       dispatch(studyStorySucces(videoUrl));
+      dispatch(showMessageWithTimeout("Story succesfully uploaded", "success"));
+      dispatch(appDoneLoading());
     } catch (error) {
       console.log(error);
+      dispatch(appDoneLoading());
     }
   };
 };
 
 export const postStudyStory = (data: any): AppThunk => {
   return async (dispatch, getState) => {
+    dispatch(appLoading());
     try {
       const res = await fetch(
         "https://api.cloudinary.com/v1_1/dqxz3kw8u/video/upload",
@@ -66,6 +75,7 @@ export const postStudyStory = (data: any): AppThunk => {
       dispatch(uploadStory(videoUrl));
     } catch (error) {
       console.log(error);
+      dispatch(appDoneLoading());
     }
   };
 };

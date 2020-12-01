@@ -9,12 +9,16 @@ import StudyPage from "./pages/Study/StudyPage";
 import Homepage from "./pages/HomePage/Homepage";
 import Sidebar from "./components/Sidebar/Sidebar";
 import SectorPage from "./pages/Study/SectorPage";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getUserWithStoredToken } from "./store/user/actions";
 import PostReview from "./components/reviewsSection/PostReview";
+import { selectAppLoading } from "./store/appState/selectors";
+import { CircularProgress } from "@material-ui/core";
+import MessageBox from "./components/MessageBox/MessageBox";
 
 function App() {
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectAppLoading);
 
   useEffect(() => {
     dispatch(getUserWithStoredToken());
@@ -30,6 +34,8 @@ function App() {
           <Sidebar />
         </div>
         <div className="content">
+          {isLoading ? <CircularProgress /> : null}
+          <MessageBox />
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route exact path="/signup" component={SignupPage} />

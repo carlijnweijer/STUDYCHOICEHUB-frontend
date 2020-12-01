@@ -21,7 +21,7 @@ export type appDoneLoading = {
 
 export type setMessage = {
   type: typeof SET_MESSAGE;
-  payload: string;
+  payload: any;
 };
 
 export type clearMessage = {
