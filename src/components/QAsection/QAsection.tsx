@@ -1,9 +1,9 @@
 import { Card, CardContent, Typography } from "@material-ui/core";
 import { AccountCircle } from "@material-ui/icons";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import { selectQuestions } from "../../store/question/selectors";
 import Ask from "./Ask";
+import Answer from "./Answer";
 import "./QAsection.css";
 import moment from "moment";
 import { selectedStudy } from "../../store/study/selectors";
@@ -13,6 +13,7 @@ export default function QAsection() {
   const study = useSelector(selectedStudy);
   // const questions = questionsState;
   const bull = <span> • </span>;
+  console.log("questions", study?.questions);
 
   return (
     <div className="QAsection">
@@ -29,8 +30,8 @@ export default function QAsection() {
                   {bull}
                   {moment(question.createdAt).format("DD-MM-YYYY")}
                 </Typography>
-                <Typography></Typography>
               </CardContent>
+              <Answer question={question} />
             </Card>
           );
         })}
