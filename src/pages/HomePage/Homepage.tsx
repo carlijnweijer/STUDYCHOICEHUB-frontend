@@ -23,8 +23,10 @@ export default function Homepage() {
 
   return (
     <div className="page">
-      <Typography variant="h3">HomePage</Typography>
-      <Box className="home__container">
+      <Box className="home__welcome">
+        <Typography variant="h3">HomePage</Typography>
+      </Box>
+      <Box className="home__studies">
         {studies.map((study: study) => {
           return (
             <Card

@@ -10,7 +10,7 @@ import StudyStory from "../../components/StudyStories/StudyStory";
 import QAsection from "../../components/QAsection/QAsection";
 import { selectUser } from "../../store/user/selectors";
 import { fetchQuestions } from "../../store/question/actions";
-import ReviewSection from "../../components/reviewsSection/ReviewSection";
+import atSchool from "../../styles/images/atSchool.svg";
 
 export default function StudyPage() {
   const dispatch = useDispatch();
@@ -19,7 +19,12 @@ export default function StudyPage() {
   const study = useSelector(selectedStudy);
   const user = useSelector(selectUser);
 
-  const uploadControls = user.role === "student" ? <UploadButton /> : null;
+  const uploadControls =
+    user.role === "student" ? (
+      <div className="uploadBtn">
+        <UploadButton />{" "}
+      </div>
+    ) : null;
 
   useEffect(() => {
     dispatch(fetchStudy(id));
@@ -27,22 +32,27 @@ export default function StudyPage() {
   }, [id, dispatch]);
 
   return (
-    <div className="page">
-      <Box>
-        <div className="studyPage__top">
-          <Typography variant="h3" className="studyPage__title">
-            {study?.titleEn ? study?.titleEn : study?.titleNL}
-          </Typography>
-          {uploadControls}
-        </div>
+    <div className="studyPage">
+      <div className="studyPage__stories">
+        <Typography variant="h3" className="studyPage__title">
+          {study?.titleEn ? study?.titleEn : study?.titleNL}
+        </Typography>
+        {/* <img src={atSchool} alt="school" className="studyImg" /> */}
+      </div>
+      {uploadControls}
+      <div className="studyStories">
+        {study?.studyStories.map((story: any) => {
+          return (
+            <StudyStory
+              videoUrl={story.video}
+              header={study?.titleEn ? study?.titleEn : study?.titleNL}
+            />
+          );
+        })}
+      </div>
 
-        <div className="studyStories">
-          {study?.studyStories.map((story: any) => {
-            return <StudyStory videoUrl={story.video} />;
-          })}
-        </div>
-      </Box>
       <QAsection />
+
       {/* <ReviewSection /> */}
     </div>
   );

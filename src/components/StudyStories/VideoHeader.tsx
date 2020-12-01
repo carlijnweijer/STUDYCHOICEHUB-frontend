@@ -2,10 +2,10 @@ import { Typography } from "@material-ui/core";
 import "./VideoHeader.css";
 import React from "react";
 
-export default function VideoHeader() {
+export default function VideoHeader(props: any) {
   return (
     <div className="videoHeader">
-      <Typography>Studystory</Typography>
+      <Typography>Study with me! {props.header}</Typography>
     </div>
   );
 }

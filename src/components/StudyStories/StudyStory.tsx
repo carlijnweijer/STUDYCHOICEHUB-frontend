@@ -5,7 +5,7 @@ import VideoHeader from "./VideoHeader";
 export default function StudyStory(props: any) {
   return (
     <div className="studyVideo">
-      <VideoHeader />
+      <VideoHeader header={props.header} />
       <video
         width="320"
         height="240"
