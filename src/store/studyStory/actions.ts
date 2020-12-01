@@ -9,6 +9,7 @@ import {
   USER_STUDYSTORY,
 } from "./types";
 import { apiUrl } from "../../config/constants";
+import { fetchStudy } from "../study/actions";
 
 const studyStorySucces = (videoUrl: videoUrl): postStudyStorySucces => ({
   type: POST_STUDYSTORY,
@@ -25,16 +26,22 @@ export const saveStudyStory = (studyId: number) => ({
   payload: studyId,
 });
 
-const uploadStory = (storyState: any): AppThunk => {
+const uploadStory = (videoUrl: any): AppThunk => {
+  console.log("did i get to uploadstory");
   return async (dispatch, getState) => {
-    const { videoUrl, studyId, userId } = storyState;
+    const state = getState();
+    const userstate = state.userStateReducer;
+    const studystate = state.studyStateReducer;
+    const currentstudy = studystate.selectedStudy;
 
     try {
       const response = await axios.post(`${apiUrl}/upload/studystory`, {
         video: videoUrl,
-        userId,
-        studyId,
+        userId: userstate.id,
+        studyId: currentstudy.id,
       });
+      dispatch(fetchStudy(currentstudy.id));
+      dispatch(studyStorySucces(videoUrl));
     } catch (error) {
       console.log(error);
     }
@@ -56,10 +63,7 @@ export const postStudyStory = (data: any): AppThunk => {
       const video = await res.json();
       const videoUrl = video.secure_url;
 
-      dispatch(studyStorySucces(videoUrl));
-      const state = getState();
-      const storyState = state.studyStoryStateReducer;
-      dispatch(uploadStory(storyState));
+      dispatch(uploadStory(videoUrl));
     } catch (error) {
       console.log(error);
     }

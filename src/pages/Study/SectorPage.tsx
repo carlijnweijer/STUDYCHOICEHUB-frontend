@@ -36,8 +36,8 @@ export default function SectorPage() {
   }, [sector]);
 
   return (
-    <div>
-      <h1>im {sector.replace(regex, " ")}</h1>
+    <Container>
+      <Typography variant="h3">{sector.replace(regex, " ")}</Typography>
       <Container>
         {studies.map((study: study) => {
           return (
@@ -62,6 +62,6 @@ export default function SectorPage() {
           );
         })}
       </Container>
-    </div>
+    </Container>
   );
 }

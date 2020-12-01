@@ -39,9 +39,9 @@ function App() {
           </Switch>
         </div>
       </div>
-      <div className="footer">
+      {/* <div className="footer">
         <div>i'm footer</div>
-      </div>
+      </div> */}
     </div>
   );
 }

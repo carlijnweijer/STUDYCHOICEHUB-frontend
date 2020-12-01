@@ -10,6 +10,7 @@ import StudyStory from "../../components/StudyStories/StudyStory";
 import QAsection from "../../components/QAsection/QAsection";
 import { selectUser } from "../../store/user/selectors";
 import { fetchQuestions } from "../../store/question/actions";
+import ReviewSection from "../../components/reviewsSection/ReviewSection";
 
 export default function StudyPage() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ export default function StudyPage() {
           </Typography>
           {uploadControls}
         </div>
+
         <div className="studyStories">
           {study?.studyStories.map((story: any) => {
             return <StudyStory videoUrl={story.video} />;
@@ -41,6 +43,7 @@ export default function StudyPage() {
         </div>
       </Box>
       <QAsection />
+      {/* <ReviewSection /> */}
     </div>
   );
 }

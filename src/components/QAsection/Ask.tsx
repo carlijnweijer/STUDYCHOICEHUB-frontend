@@ -18,7 +18,6 @@ export default function Ask() {
 
   const handleClickAsk = (event: any) => {
     dispatch(postQuestion(question, id));
-    dispatch(fetchStudy(id));
     setQuestion("");
   };
 
