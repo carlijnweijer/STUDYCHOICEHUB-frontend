@@ -3,6 +3,7 @@ import {
   FormControl,
   InputLabel,
   OutlinedInput,
+  Typography,
 } from "@material-ui/core";
 
 import React, { useEffect, useState } from "react";
@@ -10,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
 import { useHistory } from "react-router-dom";
+import "./LoginSignup.css";
 
 export default function LoginPage() {
   const dispatch = useDispatch();
@@ -39,10 +41,12 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
-      <h1>I'm the login page</h1>
+    <div className="signupPage">
+      <div className="signupPage_top">
+        <Typography variant="h3">Welcome!</Typography>
+      </div>
       <form noValidate autoComplete="off" onSubmit={onLogin}>
-        <div>
+        <div className="login_formRow">
           <FormControl variant="outlined">
             <InputLabel htmlFor="component-outlined">Email</InputLabel>
             <OutlinedInput
@@ -52,6 +56,8 @@ export default function LoginPage() {
               label="E-mail"
             />
           </FormControl>
+        </div>
+        <div className="login_formRow">
           <FormControl variant="outlined">
             <InputLabel htmlFor="component-outlined">Password</InputLabel>
             <OutlinedInput
@@ -62,6 +68,8 @@ export default function LoginPage() {
               type="password"
             />
           </FormControl>
+        </div>
+        <div className="login_formRow">
           <Button color="primary" variant="outlined" type="submit">
             Login
           </Button>

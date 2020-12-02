@@ -5,6 +5,7 @@ import {
   Select,
   MenuItem,
   Button,
+  Typography,
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,6 +13,7 @@ import { useHistory } from "react-router-dom";
 import { signup } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
 import { Level, Role } from "../../store/user/types";
+import "./LoginSignup.css";
 
 export default function SignupPage() {
   const [firstName, setFirstName] = useState("");
@@ -72,7 +74,7 @@ export default function SignupPage() {
 
   const roleControls =
     role === "scholar" ? (
-      <FormControl variant="outlined">
+      <FormControl variant="outlined" className="signup_formRow_element">
         <InputLabel htmlFor="select">Education</InputLabel>
         <Select onChange={onSelectLevel} value={level}>
           <MenuItem value="havo">HAVO</MenuItem>
@@ -80,7 +82,7 @@ export default function SignupPage() {
         </Select>
       </FormControl>
     ) : (
-      <FormControl variant="outlined">
+      <FormControl variant="outlined" className="signup_formRow_element">
         <InputLabel htmlFor="select">Education</InputLabel>
         <Select onChange={onSelectLevel} value={level}>
           <MenuItem value="hbo">HBO</MenuItem>
@@ -100,63 +102,73 @@ export default function SignupPage() {
     password !== "";
 
   return (
-    <div>
-      <h1>I'm the signup page</h1>
-      <form noValidate autoComplete="off" onSubmit={onSignUp}>
-        <FormControl variant="outlined">
-          <InputLabel htmlFor="component-outlined">Firstname</InputLabel>
-          <OutlinedInput
-            id="component-outlined"
-            value={firstName}
-            onChange={handleFirstnameChange}
-            label="Firstname"
-          />
-        </FormControl>
-        <FormControl variant="outlined">
-          <InputLabel htmlFor="component-outlined">Lastname</InputLabel>
-          <OutlinedInput
-            id="component-outlined"
-            value={lastName}
-            onChange={handleLastnameChange}
-            label="Lastname"
-          />
-        </FormControl>
-        <FormControl variant="outlined">
-          <InputLabel htmlFor="component-outlined">E-mail</InputLabel>
-          <OutlinedInput
-            id="component-outlined"
-            value={email}
-            onChange={handleEmailChange}
-            label="E-mail"
-          />
-        </FormControl>
-        <FormControl variant="outlined">
-          <InputLabel htmlFor="component-outlined">Password</InputLabel>
-          <OutlinedInput
-            id="component-outlined"
-            value={password}
-            onChange={handlePasswordChange}
-            label="Password"
-            type="password"
-          />
-        </FormControl>
-        <FormControl variant="outlined">
-          <InputLabel htmlFor="select">Scholar/Student</InputLabel>
-          <Select onChange={onSelectRole} value={role}>
-            <MenuItem value="scholar">Scholar</MenuItem>
-            <MenuItem value="student">Student</MenuItem>
-          </Select>
-        </FormControl>
-        {signUpControls}
-        <Button
-          variant="outlined"
-          color="secondary"
-          type="submit"
-          disabled={!formValid}
-        >
-          Sign Up
-        </Button>
-      </form>
+    <div className="signupPage">
+      <div className="signupPage_top">
+        <Typography variant="h3">Welcome!</Typography>
+      </div>
+      <div className="signupPage_form">
+        <form noValidate autoComplete="off" onSubmit={onSignUp}>
+          <div className="signup_formRow">
+            <FormControl variant="outlined" className="signup_formRow_element">
+              <InputLabel htmlFor="component-outlined">Firstname</InputLabel>
+              <OutlinedInput
+                id="component-outlined"
+                value={firstName}
+                onChange={handleFirstnameChange}
+                label="Firstname"
+              />
+            </FormControl>
+            <FormControl variant="outlined" className="signup_formRow_element">
+              <InputLabel htmlFor="component-outlined">Lastname</InputLabel>
+              <OutlinedInput
+                id="component-outlined"
+                value={lastName}
+                onChange={handleLastnameChange}
+                label="Lastname"
+              />
+            </FormControl>
+          </div>
+          <div className="signup_formRow">
+            <FormControl variant="outlined" className="signup_formRow_element">
+              <InputLabel htmlFor="component-outlined">E-mail</InputLabel>
+              <OutlinedInput
+                id="component-outlined"
+                value={email}
+                onChange={handleEmailChange}
+                label="E-mail"
+              />
+            </FormControl>
+            <FormControl variant="outlined" className="signup_formRow_element">
+              <InputLabel htmlFor="component-outlined">Password</InputLabel>
+              <OutlinedInput
+                id="component-outlined"
+                value={password}
+                onChange={handlePasswordChange}
+                label="Password"
+                type="password"
+              />
+            </FormControl>
+          </div>
+          <div className="signup_formRow">
+            <FormControl variant="outlined" className="signup_formRow_element">
+              <InputLabel htmlFor="select">Scholar/Student</InputLabel>
+              <Select onChange={onSelectRole} value={role}>
+                <MenuItem value="scholar">Scholar</MenuItem>
+                <MenuItem value="student">Student</MenuItem>
+              </Select>
+            </FormControl>
+            {signUpControls}
+            <Button
+              variant="contained"
+              color="secondary"
+              type="submit"
+              disabled={!formValid}
+            >
+              Sign Up
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
