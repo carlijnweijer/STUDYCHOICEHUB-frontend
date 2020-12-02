@@ -20,7 +20,7 @@ export default function LoggedIn() {
 
   const studentControls =
     role === "student" ? (
-      <MenuItem onClick={handleClose} component={RouterLink} to="/postReview">
+      <MenuItem onClick={handleClose} component={RouterLink} to="/writeReview">
         Write a Review
       </MenuItem>
     ) : null;
@@ -43,13 +43,6 @@ export default function LoggedIn() {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem
-            onClick={handleClose}
-            component={RouterLink}
-            to="/myProfile"
-          >
-            Profile
-          </MenuItem>
           <MenuItem onClick={handleClose}>My account</MenuItem>
           {studentControls}
           <MenuItem onClick={handleClose} component={RouterLink} to="/logout">

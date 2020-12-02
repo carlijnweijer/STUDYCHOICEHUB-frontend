@@ -11,6 +11,7 @@ import QAsection from "../../components/QAsection/QAsection";
 import { selectUser } from "../../store/user/selectors";
 import { fetchQuestions } from "../../store/question/actions";
 import atSchool from "../../styles/images/atSchool.svg";
+import ReviewSection from "../../components/reviewsSection/ReviewSection";
 
 export default function StudyPage() {
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ export default function StudyPage() {
       </div>
 
       <QAsection />
-
+      <ReviewSection />
       {/* <ReviewSection /> */}
     </div>
   );

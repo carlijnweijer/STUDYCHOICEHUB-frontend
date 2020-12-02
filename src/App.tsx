@@ -44,8 +44,7 @@ function App() {
             <Route exact path="/logout" component={LogoutPage} />
             <Route path="/study/:id" component={StudyPage} />
             <Route path="/studies/:sector" component={SectorPage} />
-            <Route path="/postReview" component={PostReview} />
-            <Route path="/myProfile" component={MyProfile} />
+            <Route path="/writeReview" component={MyProfile} />
           </Switch>
         </div>
       </div>

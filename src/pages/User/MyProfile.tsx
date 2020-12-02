@@ -145,7 +145,7 @@ export default function MyProfile() {
 
   return (
     <div>
-      <h1>my profile page</h1>
+      <Typography>Your Reviews Page</Typography>
       <p>
         {user.firstName} {user.lastName}
       </p>
