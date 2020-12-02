@@ -10,7 +10,12 @@ import {
   Role,
   Level,
 } from "./types";
-import { appDoneLoading, appLoading, setMessage } from "../appState/actions";
+import {
+  appDoneLoading,
+  appLoading,
+  setMessage,
+  showMessageWithTimeout,
+} from "../appState/actions";
 import { apiUrl } from "../../config/constants";
 import { selectToken } from "./selectors";
 
@@ -31,15 +36,23 @@ export const getUserWithStoredToken = (): AppThunk => {
     const token = selectToken(getState());
     if (token === null) return;
 
+    dispatch(appLoading());
     try {
       const response = await axios.get(`${apiUrl}/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
       dispatch(tokenStillValid(response.data));
+      dispatch(appDoneLoading());
       console.log("WHAT IS TOKENVALID RES", response.data);
     } catch (error) {
-      console.log(error);
+      if (error.response) {
+        console.log(error.response.message);
+      } else {
+        console.log(error);
+      }
+      dispatch(logOut());
+      dispatch(appDoneLoading());
     }
   };
 };
@@ -57,14 +70,15 @@ export const login = (email: string, password: string): AppThunk => {
       });
 
       dispatch(loginSucces(response.data));
+      dispatch(showMessageWithTimeout("Welcome back!", "success"));
       dispatch(appDoneLoading());
     } catch (error) {
       if (error.response) {
         console.log(error.response.data.message);
-        dispatch(setMessage(error.response.data.message));
+        dispatch(setMessage(error.response.data.message, "error"));
       } else {
         console.log(error.message);
-        dispatch(setMessage(error.message));
+        dispatch(setMessage(error.message, "error"));
       }
       dispatch(appDoneLoading());
     }
@@ -93,14 +107,15 @@ export const signup = (
       });
 
       dispatch(loginSucces(response.data));
+      dispatch(showMessageWithTimeout("Account created", "success"));
       dispatch(appDoneLoading());
     } catch (error) {
       if (error.response) {
         console.log(error.response.data.message);
-        dispatch(setMessage(error.response.data.message));
+        dispatch(setMessage(error.response.data.message, "error"));
       } else {
         console.log(error.message);
-        dispatch(setMessage(error.message));
+        dispatch(setMessage(error.message, "error"));
       }
       dispatch(appDoneLoading());
     }

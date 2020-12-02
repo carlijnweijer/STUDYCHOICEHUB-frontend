@@ -9,6 +9,7 @@ ELEMENTS: NAVBAR
 */
 .topBar {
   flex: 100;
+  background-color: #ffc641;
 }
 /* 
 ------ MAIN ------ 
@@ -17,12 +18,14 @@ ELEMENTS: SIDEBAR
 
 .main {
   display: flex;
+  background-color: cadetblue;
 }
 
 .sideBar {
-  background-color: aqua;
+  background-color: #ececf4;
   display: flex;
   justify-content: center;
+
   /* width: 5%; */
 }
 
@@ -33,6 +36,7 @@ ELEMENTS: HOMEPAGE, LOGIN/SIGNUP, SECTORPAGE, STUDYPAGE
 
 .content {
   /* background-image: url(images/backgroundpattern.png); */
+
   background-size: cover;
   background-color: cadetblue;
   flex: 1;
@@ -46,7 +50,11 @@ ELEMENTS: HOMEPAGE, LOGIN/SIGNUP, SECTORPAGE, STUDYPAGE
   border-radius: 15px;
 }
 
-.home__container {
+.home__welcome {
+  justify-content: center;
+}
+
+.home__studies {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -60,15 +68,6 @@ ELEMENTS: HOMEPAGE, LOGIN/SIGNUP, SECTORPAGE, STUDYPAGE
   justify-content: center;
   flex-direction: column;
   opacity: 1;
-}
-
-.studyPage__top {
-  display: flex;
-  margin-bottom: 50px;
-}
-
-.studyPage__title {
-  flex: 1;
 }
 
 /* 

@@ -2,6 +2,7 @@ import { AppThunk } from "../types";
 import axios from "axios";
 import { FETCH_SELECTED_STUDY, FETCH_STUDY_SUCCES, study } from "./types";
 import { apiUrl } from "../../config/constants";
+import { appDoneLoading } from "../appState/actions";
 
 const fetchStudySucces = (studies: study[]) => ({
   type: FETCH_STUDY_SUCCES,
@@ -19,6 +20,7 @@ export const fetchStudies = (): AppThunk => {
     const response = await axios.get(`${apiUrl}/studies`);
     console.log("what is response, ", response.data);
     dispatch(fetchStudySucces(response.data));
+    dispatch(appDoneLoading());
   };
 };
 

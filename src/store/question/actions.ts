@@ -8,17 +8,26 @@ import {
   postQuestionAction,
 } from "./types";
 import { fetchStudy } from "../study/actions";
+import { useDispatch } from "react-redux";
+import {
+  appDoneLoading,
+  appLoading,
+  showMessageWithTimeout,
+} from "../appState/actions";
 
 export const fetchQuestions = (
   studyId: number | string | undefined
 ): AppThunk => {
   return async (dispatch, getState) => {
+    dispatch(appLoading());
     try {
       const response = await axios.get(`${apiUrl}/study/${studyId}/questions`);
 
       dispatch(fetchedQuestions(response.data));
+      dispatch(appDoneLoading());
     } catch (error) {
       console.log(error);
+      dispatch(appDoneLoading());
     }
   };
 };
@@ -46,9 +55,13 @@ export const postQuestion = (
           userId: id,
         }
       );
+      dispatch(
+        showMessageWithTimeout("Question succesfully posted", "success")
+      );
       dispatch(fetchStudy(studyId));
     } catch (error) {
       console.log(error);
+      dispatch(showMessageWithTimeout("Something went wrong", "error"));
     }
   };
 };
@@ -72,8 +85,12 @@ export const postAnswer = (
           userId: id,
         }
       );
+
+      dispatch(showMessageWithTimeout("Answer succesfully posted", "success"));
+      dispatch(fetchStudy(studyId));
     } catch (error) {
       console.log(error);
+      dispatch(showMessageWithTimeout("Something went wrong", "error"));
     }
   };
 };
