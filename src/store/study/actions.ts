@@ -1,6 +1,11 @@
 import { AppThunk } from "../types";
 import axios from "axios";
-import { FETCH_SELECTED_STUDY, FETCH_STUDY_SUCCES, study } from "./types";
+import {
+  FETCH_SELECTED_STUDY,
+  FETCH_STUDY_SUCCES,
+  study,
+  FETCH_CHOSEN_STUDY,
+} from "./types";
 import { apiUrl } from "../../config/constants";
 import { appDoneLoading } from "../appState/actions";
 
@@ -11,6 +16,11 @@ const fetchStudySucces = (studies: study[]) => ({
 
 const fetchSelectedStudySucces = (study: study) => ({
   type: FETCH_SELECTED_STUDY,
+  payload: study,
+});
+
+export const fetchChosenStudySucces = (study: any) => ({
+  type: FETCH_CHOSEN_STUDY,
   payload: study,
 });
 
@@ -29,6 +39,21 @@ export const fetchStudiesSector = (sector: string): AppThunk => {
     const response = await axios.get(`${apiUrl}/studies/${sector}`);
     console.log("what is response data", response.data);
     dispatch(fetchStudySucces(response.data));
+  };
+};
+
+export const fetchSearchedStudy = (search: string): AppThunk => {
+  return async (dispatch, getState) => {
+    console.log("did i get to fetchsearchedstudy");
+    try {
+      console.log("what is search");
+      const response = await axios.get(`${apiUrl}/study?title=${search}`);
+
+      console.log(response);
+      dispatch(fetchChosenStudySucces(response.data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 
