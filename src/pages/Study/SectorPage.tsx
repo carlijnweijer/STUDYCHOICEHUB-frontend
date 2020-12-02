@@ -3,7 +3,6 @@ import {
   Card,
   CardActions,
   CardContent,
-  Container,
   Typography,
 } from "@material-ui/core";
 import React, { useEffect } from "react";
@@ -17,6 +16,8 @@ import { saveStudyStory, userStudyStory } from "../../store/studyStory/actions";
 import { selectUserId } from "../../store/user/selectors";
 import "./StudySectorStyles.css";
 import StudyImg from "../../styles/images/study.svg";
+import TeacherImg from "../../styles/images/teacher.svg";
+import SchoolImg from "../../styles/images/school.svg";
 
 export default function SectorPage() {
   const { sector } = useParams<{ sector: string }>();
@@ -25,6 +26,9 @@ export default function SectorPage() {
   const studies = useSelector(selectStudies);
   // console.log("wat is studies", studies);
   const userId = useSelector(selectUserId);
+
+  const images = [StudyImg, TeacherImg, SchoolImg];
+  const imgIndex = Math.floor(Math.random() * images.length);
 
   const clickedStudy = (studyId: number, userId: number | null) => {
     console.log("what got clicked", studyId);
@@ -43,7 +47,7 @@ export default function SectorPage() {
           <Typography variant="h3">{sector.replace(regex, " ")}</Typography>
         </div>
         <div className="sectorPageImg">
-          <img src={StudyImg} alt="studyingperson" />
+          <img src={images[imgIndex]} alt="studyingperson" />
         </div>
       </div>
       <div>

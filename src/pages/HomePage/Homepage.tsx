@@ -58,7 +58,7 @@ export default function Homepage() {
                     className="home__card__button"
                     size="small"
                     component={RouterLink}
-                    to={`/studies/${study.crohoSector}`}
+                    to={`/study/${study.id}`}
                   >
                     See Study!
                   </Button>
