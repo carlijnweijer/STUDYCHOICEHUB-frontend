@@ -11,7 +11,6 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import SectorPage from "./pages/Study/SectorPage";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserWithStoredToken } from "./store/user/actions";
-import PostReview from "./components/reviewsSection/PostReview";
 import { selectAppLoading } from "./store/appState/selectors";
 import { CircularProgress } from "@material-ui/core";
 import MessageBox from "./components/MessageBox/MessageBox";

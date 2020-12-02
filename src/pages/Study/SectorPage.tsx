@@ -18,7 +18,6 @@ import { selectUserId } from "../../store/user/selectors";
 
 export default function SectorPage() {
   const { sector } = useParams<{ sector: string }>();
-  // console.log("what is sector", sector);
   const regex = /_/gi;
   const dispatch = useDispatch();
   const studies = useSelector(selectStudies);
@@ -33,7 +32,7 @@ export default function SectorPage() {
 
   useEffect(() => {
     dispatch(fetchStudiesSector(sector));
-  }, [sector]);
+  }, [sector, dispatch]);
 
   return (
     <Container>

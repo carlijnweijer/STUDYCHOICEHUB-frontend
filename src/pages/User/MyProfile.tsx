@@ -33,7 +33,7 @@ export default function MyProfile() {
 
   useEffect(() => {
     dispatch(fetchReviews());
-  }, []);
+  }, [dispatch]);
 
   const handleReviewChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
@@ -150,7 +150,6 @@ export default function MyProfile() {
         {user.firstName} {user.lastName}
       </p>
       {studentcontrols}
-      {/* write a review! */}
       {studentCanWriteReview}
       {/* reviews */}
       {
