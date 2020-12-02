@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./styles.css";
-import { Box, Container, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import UploadButton from "../../components/StudyStories/UploadStory/UploadButton";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,8 +9,7 @@ import { selectedStudy } from "../../store/study/selectors";
 import StudyStory from "../../components/StudyStories/StudyStory";
 import QAsection from "../../components/QAsection/QAsection";
 import { selectUser } from "../../store/user/selectors";
-import { fetchQuestions } from "../../store/question/actions";
-import atSchool from "../../styles/images/atSchool.svg";
+import ReviewSection from "../../components/reviewsSection/ReviewSection";
 
 export default function StudyPage() {
   const dispatch = useDispatch();
@@ -37,7 +36,6 @@ export default function StudyPage() {
         <Typography variant="h3" className="studyPage__title">
           {study?.titleEn ? study?.titleEn : study?.titleNL}
         </Typography>
-        {/* <img src={atSchool} alt="school" className="studyImg" /> */}
       </div>
       {uploadControls}
       <div className="studyStories">
@@ -52,8 +50,7 @@ export default function StudyPage() {
       </div>
 
       <QAsection />
-
-      {/* <ReviewSection /> */}
+      <ReviewSection />
     </div>
   );
 }

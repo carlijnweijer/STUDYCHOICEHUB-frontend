@@ -14,6 +14,7 @@ const initialState: userState = {
   id: null,
   role: null,
   level: null,
+  studyId: null,
 };
 
 const userStateReducer = (state = initialState, action: userActionTypes) => {

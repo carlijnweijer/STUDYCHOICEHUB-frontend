@@ -4,6 +4,7 @@ import userStateReducer from "./user/reducer";
 import studyStateReducer from "./study/reducer";
 import studyStoryStateReducer from "./studyStory/reducer";
 import questionStateReducer from "./question/reducer";
+import reviewStateRecuder from "./studyReview/reducer";
 
 const rootReducer = combineReducers({
   appStateReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   studyStateReducer,
   studyStoryStateReducer,
   questionStateReducer,
+  reviewStateRecuder,
 });
 
 export default rootReducer;

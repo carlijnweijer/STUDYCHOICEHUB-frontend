@@ -28,6 +28,7 @@ export type userState = {
   id: number | null;
   role: Role | null;
   level: Level | null;
+  studyId: number | null;
 };
 
 export type userWithToken = {

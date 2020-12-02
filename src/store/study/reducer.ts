@@ -1,4 +1,9 @@
-import { FETCH_SELECTED_STUDY, FETCH_STUDY_SUCCES, studyState } from "./types";
+import {
+  FETCH_CHOSEN_STUDY,
+  FETCH_SELECTED_STUDY,
+  FETCH_STUDY_SUCCES,
+  studyState,
+} from "./types";
 
 const initialState: studyState = {
   sectors: [
@@ -14,6 +19,7 @@ const initialState: studyState = {
   ],
   studies: [],
   selectedStudy: null,
+  chosenStudy: [],
 };
 
 const studyStateReducer = (state = initialState, action: any) => {
@@ -23,6 +29,9 @@ const studyStateReducer = (state = initialState, action: any) => {
 
     case FETCH_SELECTED_STUDY:
       return { ...state, selectedStudy: action.payload };
+
+    case FETCH_CHOSEN_STUDY:
+      return { ...state, chosenStudy: action.payload };
 
     default:
       return state;

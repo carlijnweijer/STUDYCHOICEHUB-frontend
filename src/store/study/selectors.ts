@@ -8,6 +8,10 @@ export const selectSectors = (state: RootState) =>
 
 export const selectedStudy = (state: RootState) =>
   state.studyStateReducer.selectedStudy;
+
+export const chosenStudy = (state: RootState) =>
+  state.studyStateReducer.chosenStudy;
+
 /*
 
    "economie", AccountBalanceIcon
