@@ -22,7 +22,9 @@ ELEMENTS: SIDEBAR
 }
 
 .sideBar {
-  background-color: #ececf4;
+  padding-left: 10px;
+  margin-top: 20px;
+  background-color: cadetblue;
   display: flex;
   justify-content: center;
 
@@ -40,34 +42,6 @@ ELEMENTS: HOMEPAGE, LOGIN/SIGNUP, SECTORPAGE, STUDYPAGE
   background-size: cover;
   background-color: cadetblue;
   flex: 1;
-}
-
-/*HOME*/
-.page {
-  padding: 20px;
-  margin: 20px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 15px;
-}
-
-.home__welcome {
-  justify-content: center;
-}
-
-.home__studies {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.home__container__card {
-  width: 20%;
-  height: 150px;
-  margin: 15px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  opacity: 1;
 }
 
 /* 

@@ -1,0 +1,57 @@
+.page {
+  padding: 20px;
+  margin: 20px;
+  background-color: cadetblue;
+  display: flex;
+  flex-direction: column;
+}
+
+.homeTop {
+  justify-content: center;
+  min-height: 80vh;
+  padding-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+  border-radius: 5px;
+  /* flex-direction: column; */
+}
+
+.homeTop_header {
+  flex: 1;
+  margin-left: 50px;
+}
+
+.homeTop_img {
+  margin-top: -50px;
+  margin-right: 50px;
+  min-width: 50%;
+}
+
+.homeTop_img_image {
+  width: 100%;
+}
+
+.home_studies {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: cadetblue;
+}
+
+.home_studies_header {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.home__container__card {
+  min-width: 20%;
+  max-width: 60%;
+  height: 250px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 1;
+}

@@ -12,6 +12,8 @@ import { fetchStudies } from "../../store/study/actions";
 import { selectStudies } from "../../store/study/selectors";
 import { study } from "../../store/study/types";
 import { Link as RouterLink } from "react-router-dom";
+import "./Homepage.css";
+import NotebookSVG from "../../styles/images/Notebook-cuate.svg";
 
 export default function Homepage() {
   const dispatch = useDispatch();
@@ -23,10 +25,25 @@ export default function Homepage() {
 
   return (
     <div className="page">
-      <Box className="home__welcome">
-        <Typography variant="h3">HomePage</Typography>
+      <Box className="homeTop">
+        <div className="homeTop_header">
+          <Typography variant="h3">
+            READ REVIEWS, ASK QUESTIONS AND WATCH STUDYSTORIES
+          </Typography>
+          <Typography>TO MAKE THE STUDY CHOOSING PROCESS EASIER</Typography>
+        </div>
+        <div className="homeTop_img">
+          <img
+            src={NotebookSVG}
+            className="homeTop_img_image"
+            alt="notebook-image"
+          />
+        </div>
       </Box>
-      <Box className="home__studies">
+      <Box className="home_studies">
+        <Typography variant="h3" className="home_studies_header">
+          Discover studies
+        </Typography>
         {studies.map((study: study) => {
           return (
             <Card
