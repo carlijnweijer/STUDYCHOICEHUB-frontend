@@ -57,7 +57,9 @@ export const fetchSearchedStudy = (search: string): AppThunk => {
   };
 };
 
-export const fetchStudy = (studyId: number | string | undefined): AppThunk => {
+export const fetchStudy = (
+  studyId: number | string | undefined | null
+): AppThunk => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(`${apiUrl}/study/${studyId}`);

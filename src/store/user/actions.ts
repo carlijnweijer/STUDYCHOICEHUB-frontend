@@ -134,6 +134,9 @@ export const editUser = (studyId: number, userId: number | null): AppThunk => {
 
       console.log("resp", response);
       dispatch(tokenStillValid(response.data));
+      dispatch(
+        showMessageWithTimeout("Succesfully updated your study", "success")
+      );
     } catch (error) {
       console.log(error);
     }
