@@ -1,0 +1,27 @@
+.sectorPage {
+  background-color: cadetblue;
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sectorPageTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 5px;
+  min-height: 60vh;
+  margin-bottom: 30px;
+}
+
+.sectorPageHeader {
+  margin-top: 30px;
+}
+
+.sectorPageImg {
+  min-width: 40%;
+  max-width: 50%;
+}

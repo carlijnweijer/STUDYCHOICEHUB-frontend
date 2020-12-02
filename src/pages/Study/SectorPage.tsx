@@ -15,6 +15,8 @@ import { study } from "../../store/study/types";
 import { Link as RouterLink } from "react-router-dom";
 import { saveStudyStory, userStudyStory } from "../../store/studyStory/actions";
 import { selectUserId } from "../../store/user/selectors";
+import "./StudySectorStyles.css";
+import StudyImg from "../../styles/images/study.svg";
 
 export default function SectorPage() {
   const { sector } = useParams<{ sector: string }>();
@@ -35,9 +37,16 @@ export default function SectorPage() {
   }, [sector, dispatch]);
 
   return (
-    <Container>
-      <Typography variant="h3">{sector.replace(regex, " ")}</Typography>
-      <Container>
+    <div className="sectorPage">
+      <div className="sectorPageTop">
+        <div className="sectorPageHeader">
+          <Typography variant="h3">{sector.replace(regex, " ")}</Typography>
+        </div>
+        <div className="sectorPageImg">
+          <img src={StudyImg} alt="studyingperson" />
+        </div>
+      </div>
+      <div>
         {studies.map((study: study) => {
           return (
             <Card key={study.id} variant="outlined">
@@ -60,7 +69,7 @@ export default function SectorPage() {
             </Card>
           );
         })}
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 }
