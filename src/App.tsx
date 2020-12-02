@@ -15,6 +15,7 @@ import PostReview from "./components/reviewsSection/PostReview";
 import { selectAppLoading } from "./store/appState/selectors";
 import { CircularProgress } from "@material-ui/core";
 import MessageBox from "./components/MessageBox/MessageBox";
+import MyProfile from "./pages/User/MyProfile";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ function App() {
             <Route path="/study/:id" component={StudyPage} />
             <Route path="/studies/:sector" component={SectorPage} />
             <Route path="/postReview" component={PostReview} />
+            <Route path="/myProfile" component={MyProfile} />
           </Switch>
         </div>
       </div>
