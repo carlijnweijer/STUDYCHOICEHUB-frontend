@@ -8,6 +8,20 @@ import {
 } from "../appState/actions";
 import { fetchStudy } from "../study/actions";
 import { getUserWithStoredToken } from "../user/actions";
+import { FETCH_REVIEWS_SUCCES, Review } from "./types";
+
+const fetchReviewsSucces = (reviews: Review[]) => ({
+  type: FETCH_REVIEWS_SUCCES,
+  payload: reviews,
+});
+
+export const fetchReviews = (): AppThunk => {
+  return async (dispatch, getState) => {
+    const response = await axios.get(`${apiUrl}/reviews`);
+
+    dispatch(fetchReviewsSucces(response.data));
+  };
+};
 
 //post reviews
 export const postReview = (content: string, title: string): AppThunk => {
@@ -27,6 +41,7 @@ export const postReview = (content: string, title: string): AppThunk => {
       dispatch(showMessageWithTimeout("Review successfully posted", "success"));
       dispatch(fetchStudy(studyId));
       dispatch(getUserWithStoredToken());
+      dispatch(fetchReviews());
     } catch (error) {
       console.log(error);
     }

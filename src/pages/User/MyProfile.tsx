@@ -6,19 +6,18 @@ import {
   FormControl,
   InputLabel,
   OutlinedInput,
-  TextField,
   Typography,
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSearchedStudy } from "../../store/study/actions";
-import { chosenStudy, selectStudies } from "../../store/study/selectors";
+import { chosenStudy } from "../../store/study/selectors";
 import { study } from "../../store/study/types";
 import { editUser } from "../../store/user/actions";
 import { selectUser } from "../../store/user/selectors";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import "./MyProfile.css";
-import { postReview } from "../../store/studyReview/actions";
+import { fetchReviews, postReview } from "../../store/studyReview/actions";
 
 export default function MyProfile() {
   const user = useSelector(selectUser);
@@ -32,6 +31,10 @@ export default function MyProfile() {
   //   console.log("who is user", user);
   const userId = user.id;
 
+  useEffect(() => {
+    dispatch(fetchReviews());
+  }, []);
+
   const handleReviewChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
@@ -44,6 +47,8 @@ export default function MyProfile() {
 
   const handlePostReview = (content: string, title: string) => {
     dispatch(postReview(content, title));
+    setReview("");
+    setTitle("");
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -135,7 +140,6 @@ export default function MyProfile() {
         </Button>
       </div>
     ) : null;
-  // write a review
 
   console.log("studiesarray is ", studies);
 
