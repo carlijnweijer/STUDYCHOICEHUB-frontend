@@ -41,34 +41,36 @@ export default function Homepage() {
         </div>
       </Box>
       <Box className="home_studies">
-        <Typography variant="h3" className="home_studies_header">
+        <Typography variant="h3" display="inline">
           Discover studies
         </Typography>
-        {studies.map((study: study) => {
-          return (
-            <Card
-              key={study.id}
-              variant="outlined"
-              className="home__container__card"
-            >
-              <CardContent>
-                <Typography>
-                  {study.titleEn ? study.titleEn : study.titleNL}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button
-                  className="home__card__button"
-                  size="small"
-                  component={RouterLink}
-                  to={`/studies/${study.crohoSector}`}
-                >
-                  See Study!
-                </Button>
-              </CardActions>
-            </Card>
-          );
-        })}
+        <div className="home_studies_cards">
+          {studies.map((study: study) => {
+            return (
+              <Card
+                key={study.id}
+                variant="outlined"
+                className="home__container__card"
+              >
+                <CardContent>
+                  <Typography>
+                    {study.titleEn ? study.titleEn : study.titleNL}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    className="home__card__button"
+                    size="small"
+                    component={RouterLink}
+                    to={`/studies/${study.crohoSector}`}
+                  >
+                    See Study!
+                  </Button>
+                </CardActions>
+              </Card>
+            );
+          })}
+        </div>
       </Box>
     </div>
   );

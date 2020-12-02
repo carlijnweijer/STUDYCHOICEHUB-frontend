@@ -35,21 +35,22 @@
 .home_studies {
   margin-top: 50px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
   justify-content: space-evenly;
   background-color: cadetblue;
 }
 
-.home_studies_header {
-  width: 100%;
-  margin-bottom: 50px;
+.home_studies_cards {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .home__container__card {
-  min-width: 20%;
-  max-width: 60%;
   height: 250px;
   margin: 10px;
+  width: 250px;
   display: flex;
   justify-content: center;
   flex-direction: column;
