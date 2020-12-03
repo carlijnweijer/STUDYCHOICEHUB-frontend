@@ -111,10 +111,14 @@ export default function MyProfile() {
   const studentCanWriteReview =
     user.role === "student" && user.studyId !== null ? (
       <div className="writeReview">
-        <Typography>Write a review about your study!</Typography>
-
+        <div className="writeReviewTop">
+          <Typography variant="h5" align="center">
+            Write a review about your study!
+          </Typography>
+        </div>
         <div className="writeReviewForm">
           <FormControl variant="outlined">
+            <InputLabel htmlFor="component-outlined">Title</InputLabel>
             <OutlinedInput
               id="component-outlined"
               value={title}
@@ -144,18 +148,22 @@ export default function MyProfile() {
   console.log("studiesarray is ", studies);
 
   return (
-    <div>
-      <Typography>Your Reviews Page</Typography>
-      <p>
-        {user.firstName} {user.lastName}
-      </p>
-      {studentcontrols}
-      {studentCanWriteReview}
-      {/* reviews */}
-      {
-        //show reviews of user
-        //allthereviews
-      }
+    <div className="writeReviewPage">
+      <div className="writeReviewPageBox">
+        <div className="writeReviewPageTop">
+          <Typography variant="h3">Your Reviews Page</Typography>
+          <p>
+            {user.firstName} {user.lastName}
+          </p>
+        </div>
+        {studentcontrols}
+        {studentCanWriteReview}
+        {/* reviews */}
+        {
+          //show reviews of user
+          //allthereviews
+        }
+      </div>
     </div>
   );
 }
