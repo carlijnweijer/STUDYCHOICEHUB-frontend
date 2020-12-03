@@ -9,9 +9,10 @@ import Typography from "@material-ui/core/Typography";
 import { Box, Button, TextField } from "@material-ui/core";
 import moment from "moment";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postAnswer } from "../../store/question/actions";
 import { fetchStudy } from "../../store/study/actions";
+import { selectUser } from "../../store/user/selectors";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -54,6 +55,8 @@ export default function Answer(props: any) {
   const [expandedAnswer, setExpandedAnswer] = useState(false);
   const [answer, setAnswer] = useState("");
 
+  const user = useSelector(selectUser);
+
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -72,19 +75,24 @@ export default function Answer(props: any) {
     setAnswer("");
   };
 
+  const canAnswer =
+    user.role !== "scholar" ? (
+      <Button
+        className={clsx(classes.expand, {
+          [classes.expandOpen]: expandedAnswer,
+        })}
+        onClick={handleExpandClickAnswer}
+        aria-expanded={expandedAnswer}
+        aria-label="show more"
+      >
+        Answer this Question
+      </Button>
+    ) : null;
+
   return (
     <Box>
       <CardActions disableSpacing>
-        <Button
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expandedAnswer,
-          })}
-          onClick={handleExpandClickAnswer}
-          aria-expanded={expandedAnswer}
-          aria-label="show more"
-        >
-          Answer this Question
-        </Button>
+        {canAnswer}
         <Button
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
