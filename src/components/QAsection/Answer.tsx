@@ -56,7 +56,11 @@ export default function Answer(props: any) {
   const [answer, setAnswer] = useState("");
 
   const user = useSelector(selectUser);
-  console.log("who is user", user);
+
+  const noAnswer =
+    !Array.isArray(answers) || !answers.length ? (
+      <Typography>This question has no answers yet.. </Typography>
+    ) : null;
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -129,9 +133,11 @@ export default function Answer(props: any) {
       </CardActions>
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
+        {noAnswer}
         {answers.map((answer: any) => {
           return (
             <CardContent key={answer.id}>
+              {noAnswer}
               <Typography>{answer.content}</Typography>
               <Typography>
                 {moment(answer.createdAt).format("DD-MM-YYYY")}
