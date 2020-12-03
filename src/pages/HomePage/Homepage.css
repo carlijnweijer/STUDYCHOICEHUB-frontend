@@ -6,6 +6,16 @@
   flex-direction: column;
 }
 
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 5vw;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-size: 4vw;
+}
+
 .homeTop {
   justify-content: center;
   min-height: 80vh;

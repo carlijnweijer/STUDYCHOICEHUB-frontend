@@ -70,6 +70,7 @@ export const fetchStudy = (
       const response = await axios.get(`${apiUrl}/study/${studyId}`);
       console.log("did i get to fetch study");
       dispatch(fetchSelectedStudySucces(response.data.study));
+      dispatch(appDoneLoading());
     } catch (error) {
       console.log(error);
     }

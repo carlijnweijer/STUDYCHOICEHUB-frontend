@@ -6,11 +6,21 @@
   flex-direction: column;
 }
 
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 5vw;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-size: 4vw;
+}
+
 .sectorPageTop {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+
   background-color: white;
   border-radius: 5px;
   min-height: 60vh;
@@ -28,4 +38,20 @@
 
 .studyPage {
   min-height: 100vh;
+}
+
+.studyPage {
+  padding: 20px;
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.studyPage__stories {
+  display: flex;
+  margin-bottom: 20px;
+  position: relative;
 }

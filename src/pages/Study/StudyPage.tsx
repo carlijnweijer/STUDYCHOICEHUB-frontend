@@ -32,15 +32,14 @@ export default function StudyPage() {
   return (
     <div className="studyPage">
       <div className="studyPage__stories">
-        <Typography variant="h3" className="studyPage__title">
-          {study?.titleEn ? study?.titleEn : study?.titleNL}
-        </Typography>
+        <h4>{study?.titleEn ? study?.titleEn : study?.titleNL}</h4>
       </div>
       {uploadControls}
       <div className="studyStories">
         {study?.studyStories.map((story: any) => {
           return (
             <StudyStory
+              key={story.id}
               videoUrl={story.video}
               header={study?.titleEn ? study?.titleEn : study?.titleNL}
             />

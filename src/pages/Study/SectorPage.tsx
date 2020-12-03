@@ -44,7 +44,7 @@ export default function SectorPage() {
     <div className="sectorPage">
       <div className="sectorPageTop">
         <div className="sectorPageHeader">
-          <Typography variant="h3">{sector.replace(regex, " ")}</Typography>
+          <h4>{sector.replace(regex, " ")}</h4>
         </div>
         <div className="sectorPageImg">
           <img src={images[imgIndex]} alt="studyingperson" />
