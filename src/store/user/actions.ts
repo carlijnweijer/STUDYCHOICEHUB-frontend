@@ -44,7 +44,6 @@ export const getUserWithStoredToken = (): AppThunk => {
 
       dispatch(tokenStillValid(response.data));
       dispatch(appDoneLoading());
-      console.log("WHAT IS TOKENVALID RES", response.data);
     } catch (error) {
       if (error.response) {
         console.log(error.response.message);
@@ -126,7 +125,6 @@ export const editUser = (studyId: number, userId: number | null): AppThunk => {
   console.log("did i get to edituser");
   return async (dispatch, getState) => {
     try {
-      console.log("did i get to edituserthunk");
       const response = await axios.patch(`${apiUrl}/myProfile`, {
         userId,
         studyId,

@@ -18,17 +18,19 @@ import { selectUser } from "../../store/user/selectors";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import "./MyProfile.css";
 import { fetchReviews, postReview } from "../../store/studyReview/actions";
+import { selectReviews } from "../../store/studyReview/selectors";
 
 export default function MyProfile() {
   const user = useSelector(selectUser);
   const studies = useSelector(chosenStudy);
+  const allReviews = useSelector(selectReviews);
   const [search, setSearch] = useState("");
   const [review, setReview] = useState(
     "Try and be as helpful as possible! Tell us about: Why have you chosen this study? What are you expecting to be when you finish? If you have finished this study, what is your current job? Were all you expectations met? Which were and which weren't?"
   );
   const [title, setTitle] = useState("");
   const dispatch = useDispatch();
-  //   console.log("who is user", user);
+  console.log("who is user", user);
   const userId = user.id;
 
   useEffect(() => {
@@ -53,7 +55,6 @@ export default function MyProfile() {
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
-    console.log(event.target.value);
   };
 
   const searchForStudy = () => {
@@ -62,9 +63,17 @@ export default function MyProfile() {
   };
 
   const handleMyStudyClick = (studyId: number, userId: number | null) => {
-    console.log("what is studyID", studyId);
     dispatch(editUser(studyId, userId));
   };
+
+  console.log("what is allReviews", allReviews);
+
+  const userReviews = allReviews.find((review: any) => {
+    return review.userId === user.id;
+  });
+
+  console.log("what is userreviews", userReviews);
+  console.log("what is userreviews lenght", userReviews.lenght);
 
   const studentcontrols =
     user.role === "student" && user.studyId === null ? (
@@ -145,24 +154,26 @@ export default function MyProfile() {
       </div>
     ) : null;
 
-  console.log("studiesarray is ", studies);
-
+  const reviewsOfThisUser = userReviews ? (
+    <div>
+      <Typography>{userReviews.title}</Typography>
+      <Typography>{userReviews.content}</Typography>
+    </div>
+  ) : (
+    studentCanWriteReview
+  );
   return (
     <div className="writeReviewPage">
       <div className="writeReviewPageBox">
         <div className="writeReviewPageTop">
           <Typography variant="h3">Your Reviews Page</Typography>
-          <p>
+          <Typography variant="h4">
             {user.firstName} {user.lastName}
-          </p>
+          </Typography>
         </div>
         {studentcontrols}
-        {studentCanWriteReview}
-        {/* reviews */}
-        {
-          //show reviews of user
-          //allthereviews
-        }
+
+        {reviewsOfThisUser}
       </div>
     </div>
   );
