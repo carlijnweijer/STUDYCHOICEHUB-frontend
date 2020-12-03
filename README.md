@@ -1,6 +1,6 @@
 # STUDYCHOICEHUB - a social platform where students and scholars can connect
 
-[](recording.gif)
+![](recording.gif)
 
 ## What this app is about
 
