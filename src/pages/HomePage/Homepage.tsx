@@ -37,6 +37,20 @@ export default function Homepage() {
           <img src={NotebookSVG} className="homeTop_img_image" alt="notebook" />
         </div>
       </Box>
+      <div className="about">
+        <h5>
+          Are you in your exam year and do you not yet know what you want to
+          study? Or have you already started a course at a college or university
+          and dropped out prematurely? It can be difficult to find a study that
+          really suits you. How do you discover which study program is the best
+          choice for you?
+        </h5>
+        <h6>
+          On this platform you can ask students about their experience with
+          their study, watch them study and get tips! Everything to make the
+          study choosing process easier for you!
+        </h6>
+      </div>
       <Box className="home_studies">
         <h4>Discover studies</h4>
         {/* <Typography variant="h3" display="inline">

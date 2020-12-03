@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       flexGrow: 1,
     },
+
     menuButton: {
       marginRight: theme.spacing(2),
     },
@@ -28,7 +29,7 @@ export default function Navbar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="transparent">
+      <AppBar position="fixed" color="secondary">
         <Toolbar>
           <Link to="/" style={{ textDecoration: "none", flex: 1 }}>
             <Typography

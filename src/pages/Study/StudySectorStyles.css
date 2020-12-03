@@ -4,6 +4,9 @@
   margin: 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 
 h3 {
@@ -20,10 +23,9 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   background-color: white;
   border-radius: 5px;
-  min-height: 60vh;
+  min-width: 90vw;
   margin-bottom: 30px;
 }
 
@@ -34,6 +36,12 @@ h4 {
 .sectorPageImg {
   min-width: 40%;
   max-width: 50%;
+}
+
+.studyCards {
+  border: 5px solid rgb(166, 103, 196);
+  border-radius: 5px;
+  margin: 5px;
 }
 
 .studyPage {

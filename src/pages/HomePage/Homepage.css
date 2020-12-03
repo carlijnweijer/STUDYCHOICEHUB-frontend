@@ -16,6 +16,21 @@ h4 {
   font-size: 4vw;
 }
 
+.about {
+  background-color: rgb(240, 197, 62);
+  padding: 50px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  /* font-size: 1.6vw; */
+}
+
+h6 {
+  font-family: "Roboto", sans-serif;
+  /* font-size: 1vw; */
+}
+
 .homeTop {
   justify-content: center;
   min-height: 80vh;
@@ -49,6 +64,7 @@ h4 {
   /* flex-wrap: wrap; */
   justify-content: space-evenly;
   /* background-color: cadetblue; */
+  align-content: center;
 }
 
 .home_studies_cards {

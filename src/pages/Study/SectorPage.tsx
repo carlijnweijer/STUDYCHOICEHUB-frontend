@@ -53,24 +53,26 @@ export default function SectorPage() {
       <div>
         {studies.map((study: study) => {
           return (
-            <Card key={study.id} variant="outlined">
-              <CardContent>
-                <Typography>
-                  {study.titleEn ? study.titleEn : study.titleNL}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button
-                  component={RouterLink}
-                  to={`/study/${study.id}`}
-                  onClick={() => {
-                    clickedStudy(study.id, userId);
-                  }}
-                >
-                  Learn More!
-                </Button>
-              </CardActions>
-            </Card>
+            <div className="studyCards">
+              <Card key={study.id} variant="outlined">
+                <CardContent>
+                  <Typography>
+                    {study.titleEn ? study.titleEn : study.titleNL}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    component={RouterLink}
+                    to={`/study/${study.id}`}
+                    onClick={() => {
+                      clickedStudy(study.id, userId);
+                    }}
+                  >
+                    Learn More!
+                  </Button>
+                </CardActions>
+              </Card>
+            </div>
           );
         })}
       </div>
