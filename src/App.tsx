@@ -30,10 +30,10 @@ function App() {
         <Navbar />
       </div>
       <div className="main">
+        <div className="sideBar">
+          <Sidebar />
+        </div>
         <div className="content">
-          <div className="sideBar">
-            <Sidebar />
-          </div>
           {isLoading ? <CircularProgress /> : null}
           <MessageBox />
           <Switch>

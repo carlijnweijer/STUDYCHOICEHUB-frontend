@@ -37,7 +37,7 @@ ELEMENTS: HOMEPAGE, LOGIN/SIGNUP, SECTORPAGE, STUDYPAGE
 
 .content {
   /* background-image: url(images/backgroundpattern.png); */
-  display: flex;
+  /* display: flex; */
   background-size: cover;
   /* background-color: cadetblue; */
   flex: 1;
