@@ -1,5 +1,7 @@
 # STUDYCHOICEHUB - a social platform where students and scholars can connect
 
+![](recording.gif)
+
 ## What this app is about
 
 Scholars are expected to make the choice of which direction they want to go with their future very early. Choosing a study is not easy and studying got more expensive when our government decided to stop the free study finance. 
@@ -48,6 +50,8 @@ I am planning to implement the following user stories
 - As a user I can send Direct Messages to users if I want to ask a specific question about their experience
 
 *This project is a work in progress. Some features still need to be implemented and revised. Any suggestions or feedback is welcome, please let me know! You can contact me [here](https://www.linkedin.com/in/carlijnvandeweijer/)*
+
+![](recording2.gif)
 
 ### Project details
 #### Github Project Board 
