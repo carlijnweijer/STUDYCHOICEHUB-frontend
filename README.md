@@ -51,7 +51,7 @@ I am planning to implement the following user stories
 
 *This project is a work in progress. Some features still need to be implemented and revised. Any suggestions or feedback is welcome, please let me know! You can contact me [here](https://www.linkedin.com/in/carlijnvandeweijer/)*
 
-![](recording (2).gif)
+![](recording2.gif)
 
 ### Project details
 #### Github Project Board 
