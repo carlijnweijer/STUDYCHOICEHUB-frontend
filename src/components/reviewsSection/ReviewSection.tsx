@@ -16,7 +16,7 @@ export default function ReviewSection() {
         <div className="reviews">
           {study?.reviews.map((review: any) => {
             return (
-              <Card key={review.id}>
+              <Card key={review.id} className="reviewCard">
                 <CardContent>
                   <Typography variant="h6">{review.title}</Typography>
                   <Typography>{review.content}</Typography>

@@ -20,6 +20,7 @@ export const fetchReviews = (): AppThunk => {
     const response = await axios.get(`${apiUrl}/reviews`);
 
     dispatch(fetchReviewsSucces(response.data));
+    dispatch(appDoneLoading());
   };
 };
 
@@ -37,7 +38,7 @@ export const postReview = (content: string, title: string): AppThunk => {
         userId: id,
       });
       console.log("resp is ", response);
-      dispatch(appDoneLoading());
+
       dispatch(showMessageWithTimeout("Review successfully posted", "success"));
       dispatch(fetchStudy(studyId));
       dispatch(getUserWithStoredToken());

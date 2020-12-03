@@ -2,11 +2,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: chocolate;
 }
 
 .reviewsPageBox {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.reviewsPageBoxTop {
+  margin-bottom: 30px;
+}
+
+.reviewCard {
+  margin-bottom: 25px;
 }

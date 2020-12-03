@@ -83,7 +83,7 @@ export default function MyProfile() {
         {/* study field */}
         {studies?.map((study: study) => {
           return (
-            <div>
+            <div key={study.id}>
               <Card key={study.id} variant="outlined">
                 <CardContent>
                   <Typography>

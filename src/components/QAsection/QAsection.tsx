@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography } from "@material-ui/core";
+import { Button, Card, CardContent, Typography } from "@material-ui/core";
 import { AccountCircle } from "@material-ui/icons";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -7,18 +7,30 @@ import Answer from "./Answer";
 import "./QAsection.css";
 import moment from "moment";
 import { selectedStudy } from "../../store/study/selectors";
+import { selectUser } from "../../store/user/selectors";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function QAsection() {
+  const user = useSelector(selectUser);
   // const questionsState = useSelector(selectQuestions);
   const study = useSelector(selectedStudy);
   // const questions = questionsState;
   const bull = <span> • </span>;
   console.log("questions", study?.questions);
 
+  const askQuestion =
+    user.token === null ? (
+      <Button component={RouterLink} to="/login">
+        Login to ask a question
+      </Button>
+    ) : (
+      <Ask />
+    );
+
   return (
     <div className="QAsection">
       <Typography variant="h5">Ask your Questions!</Typography>
-      <Ask />
+      {askQuestion}
       <div className="questions">
         {study?.questions.map((question: any) => {
           return (
