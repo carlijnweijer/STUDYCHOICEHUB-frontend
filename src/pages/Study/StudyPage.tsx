@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./StudySectorStyles.css";
-import { Typography } from "@material-ui/core";
+
 import { useParams } from "react-router-dom";
 import UploadButton from "../../components/StudyStories/UploadStory/UploadButton";
 import { useDispatch, useSelector } from "react-redux";
