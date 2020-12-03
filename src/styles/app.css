@@ -18,13 +18,13 @@ ELEMENTS: SIDEBAR
 
 .main {
   display: flex;
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
 }
 
 .sideBar {
   padding-left: 10px;
   margin-top: 20px;
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
   display: flex;
   justify-content: center;
 
@@ -40,7 +40,7 @@ ELEMENTS: HOMEPAGE, LOGIN/SIGNUP, SECTORPAGE, STUDYPAGE
   /* background-image: url(images/backgroundpattern.png); */
 
   background-size: cover;
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
   flex: 1;
 }
 
