@@ -56,6 +56,7 @@ export default function Answer(props: any) {
   const [answer, setAnswer] = useState("");
 
   const user = useSelector(selectUser);
+  console.log("who is user", user);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -76,18 +77,40 @@ export default function Answer(props: any) {
   };
 
   const canAnswer =
-    user.role !== "scholar" ? (
-      <Button
-        className={clsx(classes.expand, {
-          [classes.expandOpen]: expandedAnswer,
-        })}
-        onClick={handleExpandClickAnswer}
-        aria-expanded={expandedAnswer}
-        aria-label="show more"
-      >
-        Answer this Question
-      </Button>
-    ) : null;
+    user.token === null || user.role === "scholar" ? null : (
+      <div>
+        <Button
+          className={clsx(classes.expand, {
+            [classes.expandOpen]: expandedAnswer,
+          })}
+          onClick={handleExpandClickAnswer}
+          aria-expanded={expandedAnswer}
+          aria-label="show more"
+        >
+          Answer this Question
+        </Button>
+        <Collapse in={expandedAnswer} timeout="auto" unmountOnExit>
+          <div className="answer">
+            <TextField
+              value={answer}
+              onChange={handleAnswer}
+              label="Answer"
+              fullWidth
+              variant="outlined"
+            />
+            <div className="answerBtn">
+              <Button
+                color="primary"
+                variant="contained"
+                onClick={handleClickAnswer}
+              >
+                Answer!
+              </Button>
+            </div>
+          </div>
+        </Collapse>
+      </div>
+    );
 
   return (
     <Box>
@@ -104,31 +127,11 @@ export default function Answer(props: any) {
           See Answers
         </Button>
       </CardActions>
-      <Collapse in={expandedAnswer} timeout="auto" unmountOnExit>
-        <div className="answer">
-          <TextField
-            value={answer}
-            onChange={handleAnswer}
-            label="Answer"
-            fullWidth
-            variant="outlined"
-          />
-          <div className="answerBtn">
-            <Button
-              color="primary"
-              variant="contained"
-              onClick={handleClickAnswer}
-            >
-              Answer!
-            </Button>
-          </div>
-        </div>
-      </Collapse>
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         {answers.map((answer: any) => {
           return (
-            <CardContent>
+            <CardContent key={answer.id}>
               <Typography>{answer.content}</Typography>
               <Typography>
                 {moment(answer.createdAt).format("DD-MM-YYYY")}

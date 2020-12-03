@@ -7,6 +7,11 @@ import "./ReviewSection.css";
 export default function ReviewSection() {
   const study = useSelector(selectedStudy);
 
+  const reviews =
+    !Array.isArray(study?.reviews) || !study?.reviews.length ? (
+      <Typography>This study has no reviews yet.. </Typography>
+    ) : null;
+
   return (
     <div className="reviewsPage">
       <div className="reviewsPageBox">
@@ -14,6 +19,7 @@ export default function ReviewSection() {
           <Typography variant="h4">Reviews</Typography>
         </div>
         <div className="reviews">
+          {reviews}
           {study?.reviews.map((review: any) => {
             return (
               <Card key={review.id} className="reviewCard">

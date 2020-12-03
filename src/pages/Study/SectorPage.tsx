@@ -53,7 +53,7 @@ export default function SectorPage() {
       <div>
         {studies.map((study: study) => {
           return (
-            <div className="studyCards">
+            <div className="studyCards" key={study.id}>
               <Card key={study.id} variant="outlined">
                 <CardContent>
                   <Typography>

@@ -10,6 +10,7 @@ import StudyStory from "../../components/StudyStories/StudyStory";
 import QAsection from "../../components/QAsection/QAsection";
 import { selectUser } from "../../store/user/selectors";
 import ReviewSection from "../../components/reviewsSection/ReviewSection";
+import { Typography } from "@material-ui/core";
 
 export default function StudyPage() {
   const dispatch = useDispatch();
@@ -28,6 +29,13 @@ export default function StudyPage() {
   useEffect(() => {
     dispatch(fetchStudy(id));
   }, [id, dispatch]);
+  //!Array.isArray(array) || !array.length
+  console.log("what is studystories now", study?.studyStories);
+
+  const studystories =
+    !Array.isArray(study?.studyStories) || !study?.studyStories.length ? (
+      <Typography>This study has no studystories yet.. </Typography>
+    ) : null;
 
   return (
     <div className="studyPage">
@@ -35,6 +43,7 @@ export default function StudyPage() {
         <h4>{study?.titleEn ? study?.titleEn : study?.titleNL}</h4>
       </div>
       {uploadControls}
+      {studystories}
       <div className="studyStories">
         {study?.studyStories.map((story: any) => {
           return (
