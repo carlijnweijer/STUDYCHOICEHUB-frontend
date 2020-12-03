@@ -80,7 +80,7 @@ export const postAnswer = (
           userId: id,
         }
       );
-
+      console.log(response);
       dispatch(showMessageWithTimeout("Answer succesfully posted", "success"));
       dispatch(fetchStudy(studyId));
     } catch (error) {
