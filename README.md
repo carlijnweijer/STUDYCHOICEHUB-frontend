@@ -1,46 +1,76 @@
-# Getting Started with Create React App
+# STUDYCHOICEHUB - a social platform where students and scholars can connect
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What this app is about
 
-## Available Scripts
+Scholars are expected to make the choice of which direction they want to go with their future very early. Choosing a study is not easy and studying got more expensive when our government decided to stop the free study finance. 
 
-In the project directory, you can run:
+I came up with this app to make the process of choosing a study easier. This app is a place where (ex) students can leave a review on their study, share stories (videos) to show their school or studying sessions and answer questions scholars have on studies.
 
-### `npm start`
+### Used technologies and concepts
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React for UI building
+- Redux for state management
+- TypeScript
+- Authentication
+- Express
+  - REST API
+- Sequelize as ORM
+- Cloudinary to upload video's
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Goals for this project
 
-### `npm test`
+The goal of this project is to build a full stack app, practicing known and exploring new technologies. 
+During the development of this app I learned TypeScript as a new tool independently by reading the documentation, consulting forums like StackOverflow and watching online (youtube)videos.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Practice building a full-stack app
+- Build a working prototype in 2 weeks
+- Apply what we learned over the past 7 weeks the Codaisseur full stack bootcamp
+- Extend knowledge of a new technology independently
+- Showcase and document development skills using:
+  - Wireframes
+  - Data model
+  - Writing user stories 
+  - Kanban project approach
+  - transparant and structured git version control
 
-### `npm run build`
+### User stories
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- As a website visitor I am able to explore studies and see Reviews and Asked Questions and Answers
+- As a website visitor I am able to create an account eighter as a student or as a scholar
+- As a scholar I am able to post questions to different studies
+- As a scholar I can view Studystories posted by Students
+- As a student I am able to answer questions that were asked
+- As a student I am able to upload a studystory eighter from my laptop or phone library or by using my phone's camera
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+I am planning to implement the following user stories 
+- As a scholar I can save studies I like to my favorites
+- As a user I can upload a profile picture
+- As a user I can send Direct Messages to users if I want to ask a specific question about their experience
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+*This project is a work in progress. Some features still need to be implemented and revised. Any suggestions or feedback is welcome, please let me know! You can contact me [here](https://www.linkedin.com/in/carlijnvandeweijer/)*
 
-### `npm run eject`
+#### Github Project Board 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[Click here to see the Project Board](https://github.com/users/carlijnweijer/projects/2)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Wireframes
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[Click here to see the wireframes](https://xd.adobe.com/view/cf13e627-2a4f-41aa-bc89-a8f9bd0a6ee1-9a40/grid/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Database Diagram
 
-## Learn More
+[Click here to see the database diagram](https://dbdiagram.io/d/5fbb9fc23a78976d7b7d0aca)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Git version Control
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+I understand the need for solid version control and tried to 
+- Write clear commit messages
+- Use a development branch as main untill product is finished
+- Name branches by feature
+- Do pull requests after finishing a feature
+
+### Backend repository
+
+[Click here to see the backend repository](https://github.com/carlijnweijer/STUDYCHOICEHUB-backend)
+
+
