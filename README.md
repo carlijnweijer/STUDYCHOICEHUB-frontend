@@ -31,7 +31,7 @@ During the development of this app I learned TypeScript as a new tool independen
   - Data model
   - Writing user stories 
   - Kanban project approach
-  - transparant and structured git version control
+  - Transparant and structured Git version control
 
 ### User stories
 
@@ -49,6 +49,7 @@ I am planning to implement the following user stories
 
 *This project is a work in progress. Some features still need to be implemented and revised. Any suggestions or feedback is welcome, please let me know! You can contact me [here](https://www.linkedin.com/in/carlijnvandeweijer/)*
 
+### Project details
 #### Github Project Board 
 
 [Click here to see the Project Board](https://github.com/users/carlijnweijer/projects/2)
