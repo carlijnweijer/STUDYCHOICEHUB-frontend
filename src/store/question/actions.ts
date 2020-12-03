@@ -1,14 +1,8 @@
 import { AppThunk } from "../types";
 import axios from "axios";
 import { apiUrl } from "../../config/constants";
-import {
-  question,
-  FETCHED_QUESTIONS,
-  POST_QUESTION,
-  postQuestionAction,
-} from "./types";
+import { question, FETCHED_QUESTIONS } from "./types";
 import { fetchStudy } from "../study/actions";
-import { useDispatch } from "react-redux";
 import {
   appDoneLoading,
   appLoading,

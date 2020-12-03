@@ -1,4 +1,3 @@
-import { Action } from "redux";
 import {
   POST_STUDYSTORY,
   studyStoryState,

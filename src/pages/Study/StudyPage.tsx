@@ -27,7 +27,6 @@ export default function StudyPage() {
 
   useEffect(() => {
     dispatch(fetchStudy(id));
-    // dispatch(fetchQuestions(id));
   }, [id, dispatch]);
 
   return (

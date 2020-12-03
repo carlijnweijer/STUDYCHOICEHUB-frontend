@@ -2,7 +2,6 @@ import { AppThunk } from "../types";
 import axios from "axios";
 import {
   POST_STUDYSTORY,
-  studyStoryState,
   postStudyStorySucces,
   videoUrl,
   STUDY_CLICKED,

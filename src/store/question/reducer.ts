@@ -1,4 +1,4 @@
-import { FETCHED_QUESTIONS, POST_QUESTION, questionState } from "./types";
+import { FETCHED_QUESTIONS, questionState } from "./types";
 
 const initialState: questionState = [];
 

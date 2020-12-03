@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { postQuestion } from "../../store/question/actions";
-import { fetchStudy } from "../../store/study/actions";
 
 export default function Ask() {
   const { id } = useParams<{ id: string | undefined }>();

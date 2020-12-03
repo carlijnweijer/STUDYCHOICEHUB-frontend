@@ -25,3 +25,7 @@
   min-width: 40%;
   max-width: 50%;
 }
+
+.studyPage {
+  min-height: 100vh;
+}

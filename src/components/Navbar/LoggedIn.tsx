@@ -43,7 +43,6 @@ export default function LoggedIn() {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>My account</MenuItem>
           {studentControls}
           <MenuItem onClick={handleClose} component={RouterLink} to="/logout">
             Logout

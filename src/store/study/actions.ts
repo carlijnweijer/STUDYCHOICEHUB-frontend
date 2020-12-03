@@ -28,7 +28,7 @@ export const fetchStudies = (): AppThunk => {
   console.log("did i get to thunk");
   return async (dispatch, getState) => {
     const response = await axios.get(`${apiUrl}/studies`);
-    console.log("what is response, ", response.data);
+    console.log("what is response, ", response);
     dispatch(fetchStudySucces(response.data));
     dispatch(appDoneLoading());
   };
@@ -36,9 +36,13 @@ export const fetchStudies = (): AppThunk => {
 
 export const fetchStudiesSector = (sector: string): AppThunk => {
   return async (dispatch, getState) => {
-    const response = await axios.get(`${apiUrl}/studies/${sector}`);
+    const offset = getState().studyStateReducer.studies.length;
+    const response = await axios.get(
+      `${apiUrl}/studies/${sector}?offset=${offset}&limit=20`
+    );
     console.log("what is response data", response.data);
     dispatch(fetchStudySucces(response.data));
+    dispatch(appDoneLoading());
   };
 };
 
@@ -51,6 +55,7 @@ export const fetchSearchedStudy = (search: string): AppThunk => {
 
       console.log(response);
       dispatch(fetchChosenStudySucces(response.data));
+      dispatch(appDoneLoading());
     } catch (error) {
       console.log(error);
     }
