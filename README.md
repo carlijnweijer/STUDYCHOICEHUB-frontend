@@ -1,5 +1,7 @@
 # STUDYCHOICEHUB - a social platform where students and scholars can connect
 
+[](recording.gif)
+
 ## What this app is about
 
 Scholars are expected to make the choice of which direction they want to go with their future very early. Choosing a study is not easy and studying got more expensive when our government decided to stop the free study finance. 
