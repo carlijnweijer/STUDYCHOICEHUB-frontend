@@ -24,7 +24,7 @@ export default function Sidebar() {
         switch (sector) {
           case "economie":
             return (
-              <div>
+              <div key={sector}>
                 <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <AccountBalance />
                 </IconButton>
@@ -33,7 +33,7 @@ export default function Sidebar() {
 
           case "gedrag_en_maatschappij":
             return (
-              <div>
+              <div key={sector}>
                 <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <AccessibilityNew />
                 </IconButton>
@@ -42,7 +42,7 @@ export default function Sidebar() {
 
           case "gezondheidszorg":
             return (
-              <div>
+              <div key={sector}>
                 <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <LocalHospital />
                 </IconButton>
@@ -51,7 +51,7 @@ export default function Sidebar() {
 
           case "landbouw_en_natuurlijke_omgeving":
             return (
-              <div>
+              <div key={sector}>
                 <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <Eco />
                 </IconButton>
@@ -60,7 +60,7 @@ export default function Sidebar() {
 
           case "natuur":
             return (
-              <div>
+              <div key={sector}>
                 <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <EmojiNature />
                 </IconButton>
@@ -69,7 +69,7 @@ export default function Sidebar() {
 
           case "onderwijs":
             return (
-              <div>
+              <div key={sector}>
                 <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <School />
                 </IconButton>
@@ -78,7 +78,7 @@ export default function Sidebar() {
 
           case "recht":
             return (
-              <div>
+              <div key={sector}>
                 <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <Gavel />
                 </IconButton>
@@ -87,7 +87,7 @@ export default function Sidebar() {
 
           case "taal_en_cultuur":
             return (
-              <div>
+              <div key={sector}>
                 <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <Language />
                 </IconButton>
@@ -96,7 +96,7 @@ export default function Sidebar() {
 
           case "techniek":
             return (
-              <div>
+              <div key={sector}>
                 <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <Settings />
                 </IconButton>
@@ -105,7 +105,7 @@ export default function Sidebar() {
 
           default:
             return (
-              <div>
+              <div key={sector}>
                 <IconButton component={RouterLink} to={`/studies/${sector}`}>
                   <Settings />
                 </IconButton>

@@ -1,14 +1,8 @@
 import { AppThunk } from "../types";
 import axios from "axios";
 import { apiUrl } from "../../config/constants";
-import {
-  question,
-  FETCHED_QUESTIONS,
-  POST_QUESTION,
-  postQuestionAction,
-} from "./types";
+import { question, FETCHED_QUESTIONS } from "./types";
 import { fetchStudy } from "../study/actions";
-import { useDispatch } from "react-redux";
 import {
   appDoneLoading,
   appLoading,
@@ -22,7 +16,7 @@ export const fetchQuestions = (
     dispatch(appLoading());
     try {
       const response = await axios.get(`${apiUrl}/study/${studyId}/questions`);
-
+      console.log(response);
       dispatch(fetchedQuestions(response.data));
       dispatch(appDoneLoading());
     } catch (error) {
@@ -55,6 +49,7 @@ export const postQuestion = (
           userId: id,
         }
       );
+      console.log(response);
       dispatch(
         showMessageWithTimeout("Question succesfully posted", "success")
       );
@@ -85,7 +80,7 @@ export const postAnswer = (
           userId: id,
         }
       );
-
+      console.log(response);
       dispatch(showMessageWithTimeout("Answer succesfully posted", "success"));
       dispatch(fetchStudy(studyId));
     } catch (error) {

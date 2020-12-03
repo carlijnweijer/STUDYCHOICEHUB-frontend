@@ -3,7 +3,6 @@ import {
   Card,
   CardActions,
   CardContent,
-  Container,
   Typography,
 } from "@material-ui/core";
 import React, { useEffect } from "react";
@@ -15,6 +14,10 @@ import { study } from "../../store/study/types";
 import { Link as RouterLink } from "react-router-dom";
 import { saveStudyStory, userStudyStory } from "../../store/studyStory/actions";
 import { selectUserId } from "../../store/user/selectors";
+import "./StudySectorStyles.css";
+import StudyImg from "../../styles/images/study.svg";
+import TeacherImg from "../../styles/images/teacher.svg";
+import SchoolImg from "../../styles/images/school.svg";
 
 export default function SectorPage() {
   const { sector } = useParams<{ sector: string }>();
@@ -23,6 +26,9 @@ export default function SectorPage() {
   const studies = useSelector(selectStudies);
   // console.log("wat is studies", studies);
   const userId = useSelector(selectUserId);
+
+  const images = [StudyImg, TeacherImg, SchoolImg];
+  const imgIndex = Math.floor(Math.random() * images.length);
 
   const clickedStudy = (studyId: number, userId: number | null) => {
     console.log("what got clicked", studyId);
@@ -35,9 +41,16 @@ export default function SectorPage() {
   }, [sector, dispatch]);
 
   return (
-    <Container>
-      <Typography variant="h3">{sector.replace(regex, " ")}</Typography>
-      <Container>
+    <div className="sectorPage">
+      <div className="sectorPageTop">
+        <div className="sectorPageHeader">
+          <Typography variant="h3">{sector.replace(regex, " ")}</Typography>
+        </div>
+        <div className="sectorPageImg">
+          <img src={images[imgIndex]} alt="studyingperson" />
+        </div>
+      </div>
+      <div>
         {studies.map((study: study) => {
           return (
             <Card key={study.id} variant="outlined">
@@ -60,7 +73,7 @@ export default function SectorPage() {
             </Card>
           );
         })}
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 }

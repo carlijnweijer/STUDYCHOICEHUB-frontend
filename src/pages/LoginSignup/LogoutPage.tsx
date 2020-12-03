@@ -1,11 +1,11 @@
-import { Button } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import { Link as RouterLink } from "react-router-dom";
 
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectToken } from "../../store/user/selectors";
 import { useHistory } from "react-router-dom";
-
+import "./LoginSignup.css";
 import { logOut } from "../../store/user/actions";
 
 export default function LogoutPage() {
@@ -25,19 +25,29 @@ export default function LogoutPage() {
   };
 
   return (
-    <div>
-      <h1>are u sure you want to log out?</h1>
-      <Button
-        variant="outlined"
-        color="secondary"
-        component={RouterLink}
-        to="/login"
-      >
-        No send me back please
-      </Button>
-      <Button variant="outlined" color="primary" onClick={handleClick}>
-        Yes I'm sure
-      </Button>
+    <div className="logoutPage">
+      <div className="logoutPageBox">
+        <div className="logoutPageTop">
+          <Typography variant="h3">
+            Are you sure you want to log out?
+          </Typography>
+        </div>
+        <div className="buttons">
+          <Button
+            variant="contained"
+            color="secondary"
+            component={RouterLink}
+            to="/login"
+          >
+            No send me back please
+          </Button>
+        </div>
+        <div className="buttons">
+          <Button variant="contained" color="primary" onClick={handleClick}>
+            Yes I'm sure
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }

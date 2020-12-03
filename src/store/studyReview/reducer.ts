@@ -1,4 +1,4 @@
-import { ReviewState, Review, FETCH_REVIEWS_SUCCES } from "./types";
+import { ReviewState, FETCH_REVIEWS_SUCCES } from "./types";
 
 const initialState: ReviewState = {
   all: [],

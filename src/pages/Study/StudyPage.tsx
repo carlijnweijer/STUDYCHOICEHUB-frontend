@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./styles.css";
+import "./StudySectorStyles.css";
 import { Typography } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import UploadButton from "../../components/StudyStories/UploadStory/UploadButton";
@@ -27,7 +27,6 @@ export default function StudyPage() {
 
   useEffect(() => {
     dispatch(fetchStudy(id));
-    // dispatch(fetchQuestions(id));
   }, [id, dispatch]);
 
   return (

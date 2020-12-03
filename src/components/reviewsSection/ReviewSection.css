@@ -1,0 +1,19 @@
+.reviewsPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reviewsPageBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reviewsPageBoxTop {
+  margin-bottom: 30px;
+}
+
+.reviewCard {
+  margin-bottom: 25px;
+}

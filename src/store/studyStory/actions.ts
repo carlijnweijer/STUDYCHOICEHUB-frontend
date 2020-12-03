@@ -2,7 +2,6 @@ import { AppThunk } from "../types";
 import axios from "axios";
 import {
   POST_STUDYSTORY,
-  studyStoryState,
   postStudyStorySucces,
   videoUrl,
   STUDY_CLICKED,
@@ -45,6 +44,7 @@ const uploadStory = (videoUrl: any): AppThunk => {
         userId: userstate.id,
         studyId: currentstudy.id,
       });
+      console.log(response);
       dispatch(fetchStudy(currentstudy.id));
       dispatch(studyStorySucces(videoUrl));
       dispatch(showMessageWithTimeout("Story succesfully uploaded", "success"));

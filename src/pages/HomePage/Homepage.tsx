@@ -33,11 +33,7 @@ export default function Homepage() {
           <Typography>TO MAKE THE STUDY CHOOSING PROCESS EASIER</Typography>
         </div>
         <div className="homeTop_img">
-          <img
-            src={NotebookSVG}
-            className="homeTop_img_image"
-            alt="notebook-image"
-          />
+          <img src={NotebookSVG} className="homeTop_img_image" alt="notebook" />
         </div>
       </Box>
       <Box className="home_studies">
@@ -62,7 +58,7 @@ export default function Homepage() {
                     className="home__card__button"
                     size="small"
                     component={RouterLink}
-                    to={`/studies/${study.crohoSector}`}
+                    to={`/study/${study.id}`}
                   >
                     See Study!
                   </Button>
