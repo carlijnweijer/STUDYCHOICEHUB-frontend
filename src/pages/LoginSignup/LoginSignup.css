@@ -29,3 +29,30 @@
 .signup_formRow_element {
   flex: 1;
 }
+
+.logoutPage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logoutPageBox {
+  margin-top: 50px;
+  padding: 20px;
+  align-self: center;
+  background-color: white;
+  border-radius: 5px;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logoutPageTop {
+  margin-top: 50px;
+}
+
+.buttons {
+  margin: 20px;
+}
