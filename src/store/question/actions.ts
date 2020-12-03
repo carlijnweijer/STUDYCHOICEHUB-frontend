@@ -16,7 +16,7 @@ export const fetchQuestions = (
     dispatch(appLoading());
     try {
       const response = await axios.get(`${apiUrl}/study/${studyId}/questions`);
-
+      console.log(response);
       dispatch(fetchedQuestions(response.data));
       dispatch(appDoneLoading());
     } catch (error) {
@@ -49,6 +49,7 @@ export const postQuestion = (
           userId: id,
         }
       );
+      console.log(response);
       dispatch(
         showMessageWithTimeout("Question succesfully posted", "success")
       );

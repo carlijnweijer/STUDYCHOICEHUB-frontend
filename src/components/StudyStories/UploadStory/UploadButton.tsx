@@ -2,7 +2,7 @@ import { Button } from "@material-ui/core";
 
 import React from "react";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+
 import { postStudyStory } from "../../../store/studyStory/actions";
 
 export default function UploadButton() {

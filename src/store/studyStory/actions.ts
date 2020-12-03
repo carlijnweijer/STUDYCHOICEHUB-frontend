@@ -44,6 +44,7 @@ const uploadStory = (videoUrl: any): AppThunk => {
         userId: userstate.id,
         studyId: currentstudy.id,
       });
+      console.log(response);
       dispatch(fetchStudy(currentstudy.id));
       dispatch(studyStorySucces(videoUrl));
       dispatch(showMessageWithTimeout("Story succesfully uploaded", "success"));
