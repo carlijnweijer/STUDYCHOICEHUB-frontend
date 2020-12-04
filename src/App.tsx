@@ -14,7 +14,7 @@ import { getUserWithStoredToken } from "./store/user/actions";
 import { selectAppLoading } from "./store/appState/selectors";
 import { CircularProgress } from "@material-ui/core";
 import MessageBox from "./components/MessageBox/MessageBox";
-import MyProfile from "./pages/User/MyProfile";
+import MyReviews from "./pages/User/MyReviews";
 
 function App() {
   const dispatch = useDispatch();
@@ -43,7 +43,7 @@ function App() {
             <Route exact path="/logout" component={LogoutPage} />
             <Route path="/study/:id" component={StudyPage} />
             <Route path="/studies/:sector" component={SectorPage} />
-            <Route path="/writeReview" component={MyProfile} />
+            <Route path="/writeReview" component={MyReviews} />
           </Switch>
         </div>
       </div>

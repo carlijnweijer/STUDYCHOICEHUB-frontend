@@ -16,11 +16,11 @@ import { study } from "../../store/study/types";
 import { editUser } from "../../store/user/actions";
 import { selectUser } from "../../store/user/selectors";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
-import "./MyProfile.css";
+import "./MyReviews.css";
 import { fetchReviews, postReview } from "../../store/studyReview/actions";
 import { selectReviews } from "../../store/studyReview/selectors";
 
-export default function MyProfile() {
+export default function MyReviews() {
   const user = useSelector(selectUser);
   const studies = useSelector(chosenStudy);
   const allReviews = useSelector(selectReviews);
@@ -66,14 +66,9 @@ export default function MyProfile() {
     dispatch(editUser(studyId, userId));
   };
 
-  console.log("what is allReviews", allReviews);
-
   const userReviews = allReviews.find((review: any) => {
     return review.userId === user.id;
   });
-
-  console.log("what is userreviews", userReviews);
-  console.log("what is userreviews lenght", userReviews.lenght);
 
   const studentcontrols =
     user.role === "student" && user.studyId === null ? (
@@ -156,7 +151,7 @@ export default function MyProfile() {
 
   const reviewsOfThisUser = userReviews ? (
     <div>
-      <Typography>{userReviews.title}</Typography>
+      <Typography variant="h5">{userReviews.title}</Typography>
       <Typography>{userReviews.content}</Typography>
     </div>
   ) : (
@@ -166,7 +161,7 @@ export default function MyProfile() {
     <div className="writeReviewPage">
       <div className="writeReviewPageBox">
         <div className="writeReviewPageTop">
-          <Typography variant="h3">Your Reviews Page</Typography>
+          <Typography variant="h3">Your Review</Typography>
           <Typography variant="h4">
             {user.firstName} {user.lastName}
           </Typography>
