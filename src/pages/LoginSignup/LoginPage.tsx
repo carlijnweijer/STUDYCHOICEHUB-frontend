@@ -28,14 +28,12 @@ export default function LoginPage() {
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
-    console.log(event.target.value);
   };
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
   const onLogin = (event: React.FormEvent<HTMLFormElement>) => {
-    console.log("i got clicked");
     event.preventDefault();
     dispatch(login(email, password));
   };

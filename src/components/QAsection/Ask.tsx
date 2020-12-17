@@ -9,8 +9,6 @@ export default function Ask() {
   const [question, setQuestion] = useState("");
   const dispatch = useDispatch();
 
-  // console.log("what is id on ask com", id);
-
   const handleQuestion = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuestion(event.target.value);
   };

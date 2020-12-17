@@ -20,7 +20,6 @@ export default function LogoutPage() {
   }, [token, history]);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log("logout got clicked");
     dispatch(logOut());
   };
 

@@ -48,7 +48,6 @@ export default function Answer(props: any) {
   const dispatch = useDispatch();
   const question = props.question;
   const answers = question.answers;
-  //   console.log("what is question prop", question);
   const bull = <span> • </span>;
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);

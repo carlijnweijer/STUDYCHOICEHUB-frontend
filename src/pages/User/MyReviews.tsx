@@ -30,7 +30,6 @@ export default function MyReviews() {
   );
   const [title, setTitle] = useState("");
   const dispatch = useDispatch();
-  console.log("who is user", user);
   const userId = user.id;
 
   useEffect(() => {

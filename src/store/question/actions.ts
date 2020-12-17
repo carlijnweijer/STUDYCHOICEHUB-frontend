@@ -16,11 +16,9 @@ export const fetchQuestions = (
     dispatch(appLoading());
     try {
       const response = await axios.get(`${apiUrl}/study/${studyId}/questions`);
-      console.log(response);
       dispatch(fetchedQuestions(response.data));
       dispatch(appDoneLoading());
     } catch (error) {
-      console.log(error);
       dispatch(appDoneLoading());
     }
   };
@@ -49,13 +47,11 @@ export const postQuestion = (
           userId: id,
         }
       );
-      console.log(response);
       dispatch(
         showMessageWithTimeout("Question succesfully posted", "success")
       );
       dispatch(fetchStudy(studyId));
     } catch (error) {
-      console.log(error);
       dispatch(showMessageWithTimeout("Something went wrong", "error"));
     }
   };
@@ -68,9 +64,7 @@ export const postAnswer = (
 ): AppThunk => {
   return async (dispatch, getState) => {
     const state = getState();
-    console.log("what is state", state);
     const { id } = state.userStateReducer;
-    console.log("id in post answer thunk is ", id);
 
     try {
       const response = await axios.post(
@@ -80,7 +74,6 @@ export const postAnswer = (
           userId: id,
         }
       );
-      console.log(response);
       dispatch(showMessageWithTimeout("Answer succesfully posted", "success"));
       dispatch(fetchStudy(studyId));
     } catch (error) {

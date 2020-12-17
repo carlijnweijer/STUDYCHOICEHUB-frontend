@@ -16,7 +16,6 @@ export default function QAsection() {
   const study = useSelector(selectedStudy);
   // const questions = questionsState;
   const bull = <span> • </span>;
-  console.log("questions", study?.questions);
 
   const askQuestion =
     user.token === null ? (

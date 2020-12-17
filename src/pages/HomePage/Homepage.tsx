@@ -28,9 +28,7 @@ export default function Homepage() {
       <Box className="homeTop">
         <div className="homeTop_header">
           <h3>READ REVIEWS, ASK QUESTIONS AND WATCH STUDYSTORIES</h3>
-          {/* <Typography variant="h3">
-            READ REVIEWS, ASK QUESTIONS AND WATCH STUDYSTORIES
-          </Typography> */}
+
           <Typography>TO MAKE THE STUDY CHOOSING PROCESS EASIER</Typography>
         </div>
         <div className="homeTop_img">
@@ -53,9 +51,7 @@ export default function Homepage() {
       </div>
       <Box className="home_studies">
         <h4>Discover studies</h4>
-        {/* <Typography variant="h3" display="inline">
-          Discover studies
-        </Typography> */}
+
         <div className="home_studies_cards">
           {studies.map((study: study) => {
             return (

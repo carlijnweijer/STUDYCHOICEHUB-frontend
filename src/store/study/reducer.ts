@@ -2,6 +2,7 @@ import {
   FETCH_CHOSEN_STUDY,
   FETCH_SELECTED_STUDY,
   FETCH_STUDY_SUCCES,
+  FETCH_NEXT_20_STUDIES,
   studyState,
 } from "./types";
 
@@ -26,6 +27,9 @@ const studyStateReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case FETCH_STUDY_SUCCES:
       return { ...state, studies: action.payload };
+
+    case FETCH_NEXT_20_STUDIES:
+      return { ...state, ...state.studies, studies: action.payload };
 
     case FETCH_SELECTED_STUDY:
       return { ...state, selectedStudy: action.payload };

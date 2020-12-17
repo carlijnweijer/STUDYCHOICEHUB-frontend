@@ -16,6 +16,7 @@ export type study = {
 export const FETCH_STUDY_SUCCES = "FETCH_STUDY_SUCCES";
 export const FETCH_SELECTED_STUDY = "FETCH_SELECTED_STUDY";
 export const FETCH_CHOSEN_STUDY = "FETCH_CHOSEN_STUDY";
+export const FETCH_NEXT_20_STUDIES = "FETCH_NEXT_20_STUDIES";
 // export const REVIEW_CREATED = "REVIEW_CREATED";
 
 export type fetchChosenStudySucces = {
@@ -28,4 +29,8 @@ export type fetchStudySucces = {
   payload: study[];
 };
 
+export type fetchNext20Succes = {
+  type: typeof FETCH_NEXT_20_STUDIES;
+  payload: study[];
+};
 // export type studyActionTypes = fetchStudySucces;

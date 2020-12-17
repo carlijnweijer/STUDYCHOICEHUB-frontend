@@ -8,7 +8,10 @@ import {
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchStudiesSector } from "../../store/study/actions";
+import {
+  fetchNext20Studies,
+  fetchStudiesSector,
+} from "../../store/study/actions";
 import { selectStudies } from "../../store/study/selectors";
 import { study } from "../../store/study/types";
 import { Link as RouterLink } from "react-router-dom";
@@ -24,14 +27,12 @@ export default function SectorPage() {
   const regex = /_/gi;
   const dispatch = useDispatch();
   const studies = useSelector(selectStudies);
-  // console.log("wat is studies", studies);
   const userId = useSelector(selectUserId);
 
   const images = [StudyImg, TeacherImg, SchoolImg];
   const imgIndex = Math.floor(Math.random() * images.length);
 
   const clickedStudy = (studyId: number, userId: number | null) => {
-    console.log("what got clicked", studyId);
     dispatch(saveStudyStory(studyId));
     dispatch(userStudyStory(userId));
   };
@@ -51,7 +52,7 @@ export default function SectorPage() {
         </div>
       </div>
       <div>
-        {studies.map((study: study) => {
+        {studies?.map((study: study) => {
           return (
             <div className="studyCards" key={study.id}>
               <Card key={study.id} variant="outlined">
@@ -75,6 +76,9 @@ export default function SectorPage() {
             </div>
           );
         })}
+        {/* <Button onClick={() => dispatch(fetchNext20Studies(sector))}>
+          Load More..
+        </Button> */}
       </div>
     </div>
   );

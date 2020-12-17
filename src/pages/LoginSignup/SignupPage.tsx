@@ -36,37 +36,30 @@ export default function SignupPage() {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setFirstName(event.target.value);
-    console.log(event.target.value);
   };
 
   const handleLastnameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLastName(event.target.value);
-    console.log(event.target.value);
   };
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
-    console.log(event.target.value);
   };
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
-    console.log(event.target.value);
   };
 
   const onSelectRole = (event: React.ChangeEvent<{ value: unknown }>) => {
     setRole(event.target.value as Role);
-    console.log(role);
   };
 
   const onSelectLevel = (event: React.ChangeEvent<{ value: unknown }>) => {
     setLevel(event.target.value as Level);
-    console.log(level);
   };
 
   const onSignUp = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("submit got clicked");
     dispatch(
       signup(firstName, lastName, email, password, role as Role, level as Level)
     );

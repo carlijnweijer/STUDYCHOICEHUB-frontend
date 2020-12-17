@@ -7,11 +7,6 @@ const questionStateReducer = (state = initialState, action: any) => {
     case FETCHED_QUESTIONS:
       return [...state, ...action.payload];
 
-    // case POST_QUESTION:
-    //   console.log(action.payload, "payload");
-    //   console.log("state", [...state, action.payload]);
-    //   return [...state, action.payload];
-
     default:
       return state;
   }

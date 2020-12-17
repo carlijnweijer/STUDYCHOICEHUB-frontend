@@ -18,7 +18,6 @@ export default function UploadButton() {
 
   const handleFileInputChange = async (event: any) => {
     const file: any = event.target.files[0];
-    console.log("file is", file);
 
     const data = new FormData();
     data.append("file", file);

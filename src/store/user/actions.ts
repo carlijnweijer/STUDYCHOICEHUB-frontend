@@ -122,7 +122,6 @@ export const signup = (
 };
 
 export const editUser = (studyId: number, userId: number | null): AppThunk => {
-  console.log("did i get to edituser");
   return async (dispatch, getState) => {
     try {
       const response = await axios.patch(`${apiUrl}/myProfile`, {
@@ -130,7 +129,6 @@ export const editUser = (studyId: number, userId: number | null): AppThunk => {
         studyId,
       });
 
-      console.log("resp", response);
       dispatch(tokenStillValid(response.data));
       dispatch(
         showMessageWithTimeout("Succesfully updated your study", "success")

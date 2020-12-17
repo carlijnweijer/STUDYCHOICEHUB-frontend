@@ -37,7 +37,6 @@ export const postReview = (content: string, title: string): AppThunk => {
         title,
         userId: id,
       });
-      console.log("resp is ", response);
 
       dispatch(showMessageWithTimeout("Review successfully posted", "success"));
       dispatch(fetchStudy(studyId));

@@ -31,7 +31,6 @@ export const saveStudyStory = (studyId: number) => ({
 });
 
 const uploadStory = (videoUrl: any): AppThunk => {
-  console.log("did i get to uploadstory");
   return async (dispatch, getState) => {
     const state = getState();
     const userstate = state.userStateReducer;
@@ -44,7 +43,6 @@ const uploadStory = (videoUrl: any): AppThunk => {
         userId: userstate.id,
         studyId: currentstudy.id,
       });
-      console.log(response);
       dispatch(fetchStudy(currentstudy.id));
       dispatch(studyStorySucces(videoUrl));
       dispatch(showMessageWithTimeout("Story succesfully uploaded", "success"));
@@ -68,7 +66,6 @@ export const postStudyStory = (data: any): AppThunk => {
         }
       );
 
-      console.log("what is response fetch", res);
       const video = await res.json();
       const videoUrl = video.secure_url;
 

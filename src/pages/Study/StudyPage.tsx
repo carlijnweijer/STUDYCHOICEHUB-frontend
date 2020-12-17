@@ -15,7 +15,6 @@ import { Typography } from "@material-ui/core";
 export default function StudyPage() {
   const dispatch = useDispatch();
   const { id } = useParams<{ id: string | undefined }>();
-  // console.log(id, "id is");
   const study = useSelector(selectedStudy);
   const user = useSelector(selectUser);
 
@@ -30,7 +29,6 @@ export default function StudyPage() {
     dispatch(fetchStudy(id));
   }, [id, dispatch]);
   //!Array.isArray(array) || !array.length
-  console.log("what is studystories now", study?.studyStories);
 
   const studystories =
     !Array.isArray(study?.studyStories) || !study?.studyStories.length ? (
